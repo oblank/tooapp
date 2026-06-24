@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>麻将 AI 助手实战练习指南 | Mahjong AI Assistant Practice Guide</title>
+  <meta name="description" content="想提升麻将水平？本文介绍如何借助 AI 牌局分析、实时建议快速进步，推荐 Mahjong AI 助手应用。| Want to improve your mahjong game? Learn how AI tile analysis and real-time suggestions accelerate your progress. Try Mahjong AI.">
+  <meta name="author" content="Yuhao Deng · 邓羽浩">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/articles/mahjong-assistant-practice-guide.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/articles/mahjong-assistant-practice-guide.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/articles/mahjong-assistant-practice-guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/articles/mahjong-assistant-practice-guide.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tooapp.com/articles/mahjong-assistant-practice-guide.html">
+  <meta property="og:title" content="麻将 AI 助手实战练习指南 | Mahjong AI Assistant Practice Guide">
+  <meta property="og:description" content="借助 AI 牌局分析与实时建议，快速提升麻将水平，让每一局都成为有效训练。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/og-mahjong-ai.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mahjong AI Assistant Practice Guide">
+  <meta name="twitter:description" content="Use AI tile analysis and real-time suggestions to level up your mahjong game faster than ever.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/og-mahjong-ai.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#FF9F0A">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "麻将 AI 助手实战练习指南",
+    "description": "想提升麻将水平？本文介绍如何借助 AI 牌局分析、实时建议快速进步，推荐 Mahjong AI 助手应用。",
+    "url": "https://tooapp.com/articles/mahjong-assistant-practice-guide.html",
+    "datePublished": "2026-06-23",
+    "dateModified": "2026-06-23",
+    "author": {
+      "@type": "Person",
+      "name": "Yuhao Deng",
+      "alternateName": "邓羽浩",
+      "url": "https://tooapp.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Too Apps",
+      "url": "https://tooapp.com/"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ── Article Page Specific ─── */
+    .article-hero {
+      padding-block: var(--sp-16) var(--sp-12);
+      background: linear-gradient(160deg,
+        color-mix(in srgb, #FF9F0A 8%, var(--surface)) 0%,
+        var(--surface) 100%);
+    }
+    .article-hero-inner { max-width: 760px; }
+    .article-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FF9F0A;
+      margin-bottom: var(--sp-4);
+    }
+    .article-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-6);
+    }
+    .article-hero-summary {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-8);
+      max-width: 58ch;
+    }
+    .article-meta {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-8);
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr min(680px, 100%) 1fr;
+      gap: var(--sp-8);
+      padding-block: var(--sp-16);
+    }
+    .article-layout > * { grid-column: 2; }
+    .prose h2 {
+      font-size: var(--size-xl);
+      margin-top: var(--sp-12);
+      margin-bottom: var(--sp-4);
+    }
+    .prose h3 {
+      font-size: var(--size-lg);
+      margin-top: var(--sp-8);
+      margin-bottom: var(--sp-3);
+    }
+    .prose p {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: none;
+    }
+    .prose ul, .prose ol {
+      margin-bottom: var(--sp-6);
+      padding-left: var(--sp-6);
+    }
+    .prose li {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-2);
+    }
+    .prose strong { color: var(--text-primary); }
+    .app-callout {
+      background: var(--surface-raised);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: var(--sp-6);
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      margin-block: var(--sp-8);
+    }
+    .app-callout-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+    .app-callout-body { flex: 1; }
+    .app-callout-name {
+      font-size: var(--size-lg);
+      font-weight: 700;
+      margin-bottom: var(--sp-1);
+    }
+    .app-callout-desc {
+      font-size: var(--size-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-4);
+      max-width: none;
+    }
+    .app-callout .cta-group { flex-wrap: wrap; }
+    .tip-box {
+      background: color-mix(in srgb, #FF9F0A 8%, var(--surface));
+      border-left: 4px solid #FF9F0A;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--sp-4) var(--sp-6);
+      margin-block: var(--sp-6);
+    }
+    .tip-box p { margin-bottom: 0; font-size: var(--size-sm); }
+    .tip-label {
+      font-size: var(--size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #FF9F0A;
+      margin-bottom: var(--sp-2);
+    }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 768px) {
+      .app-callout { flex-direction: column; }
+      .article-layout { grid-template-columns: 1fr; padding-inline: var(--sp-4); }
+      .article-layout > * { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-sub">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span data-zh="文章" data-en="Articles">文章</span>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page" data-zh="麻将 AI 练习指南" data-en="Mahjong AI Practice Guide">麻将 AI 练习指南</span>
+  </nav>
+</div>
+
+<!-- ===================== ARTICLE HERO ===================== -->
+<section class="article-hero" aria-labelledby="article-heading">
+  <div class="container article-hero-inner">
+    <p class="article-eyebrow" data-zh="麻将 · AI · 进阶技巧" data-en="Mahjong · AI · Advanced Skills">麻将 · AI · 进阶技巧</p>
+    <h1 id="article-heading" class="article-hero-title">
+      <span data-zh="麻将 AI 助手实战练习指南" data-en="Mahjong AI Assistant Practice Guide">麻将 AI 助手实战练习指南</span>
+    </h1>
+    <p class="article-hero-summary" data-zh="每局结束后复盘吗？用 AI 实时分析牌局，识别最优出牌策略，比单纯多打更快提升水平。" data-en="Do you review your games after each session? Use AI to analyze tiles in real time, identify optimal plays, and improve faster than simply playing more.">
+      每局结束后复盘吗？用 AI 实时分析牌局，识别最优出牌策略，比单纯多打更快提升水平。
+    </p>
+    <p class="article-meta" data-zh="作者：邓羽浩 · 2026年6月" data-en="By Yuhao Deng · June 2026">作者：邓羽浩 · 2026年6月</p>
+
+    <!-- Top CTA -->
+    <div class="app-callout">
+      <div class="app-callout-icon app-icon--orange" role="img" aria-label="Mahjong AI app icon"></div>
+      <div class="app-callout-body">
+        <p class="app-callout-name">Mahjong AI</p>
+        <p class="app-callout-desc" data-zh="麻将 AI 智能助手，实时分析牌局，帮助你提升技术、享受麻将乐趣。iOS &amp; macOS 免费下载。" data-en="AI-powered mahjong assistant that analyzes your tiles in real time. Level up your game on iOS &amp; macOS. Free to download.">
+          麻将 AI 智能助手，实时分析牌局，帮助你提升技术、享受麻将乐趣。iOS &amp; macOS 免费下载。
+        </p>
+        <div class="cta-group">
+          <a href="https://apps.apple.com/us/app/mahjong-ai-mahjong-assistant/id6758575182?uo=4"
+             class="btn btn-store" target="_blank" rel="noopener"
+             aria-label="在 App Store 下载 Mahjong AI">
+            <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+          </a>
+          <a href="/apps/mahjong-ai.html" class="btn btn-card-detail" data-zh="查看详情" data-en="Learn More">查看详情</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARTICLE BODY ===================== -->
+<main>
+  <div class="article-layout">
+    <article class="prose">
+
+      <h2 data-zh="为什么「多打」不等于「提升」？" data-en="Why 'Playing More' Doesn't Equal 'Getting Better'">为什么「多打」不等于「提升」？</h2>
+
+      <p data-zh="很多麻将玩家陷入一个误区：打得越多，水平就越高。事实上，如果每次都用同样的错误策略打牌，无论打多少局都只是在重复错误。真正的进步需要有效的复盘与分析。" data-en="Many mahjong players fall into a trap: the more they play, the better they'll get. In reality, if you repeat the same flawed strategies every game, you're just reinforcing bad habits. Real improvement requires effective review and analysis.">
+        很多麻将玩家陷入一个误区：打得越多，水平就越高。事实上，如果每次都用同样的错误策略打牌，无论打多少局都只是在重复错误。真正的进步需要有效的复盘与分析。
+      </p>
+
+      <p data-zh="职业棋牌选手的训练方式，70% 以上是复盘与研究，而不是实战对局。AI 助手让普通玩家也能享受到这种「专业级复盘」的体验。" data-en="Professional card and tile game players spend over 70% of their training on review and study — not live games. An AI assistant gives everyday players access to this kind of professional-level analysis.">
+        职业棋牌选手的训练方式，70% 以上是复盘与研究，而不是实战对局。AI 助手让普通玩家也能享受到这种「专业级复盘」的体验。
+      </p>
+
+      <h2 data-zh="AI 如何分析麻将牌局？" data-en="How Does AI Analyze a Mahjong Hand?">AI 如何分析麻将牌局？</h2>
+
+      <h3 data-zh="1. 实时胡牌概率计算" data-en="1. Real-Time Win Probability Calculation">1. 实时胡牌概率计算</h3>
+
+      <p data-zh="AI 能在毫秒级时间内计算当前手牌的胡牌概率，并比较不同出牌选择对后续概率的影响。这让你在面对「打这张还是打那张」的困惑时，有了数据依据。" data-en="AI can calculate your current hand's win probability in milliseconds, comparing how different discard choices affect subsequent odds. When you're torn between two tiles to discard, you now have data to guide the decision.">
+        AI 能在毫秒级时间内计算当前手牌的胡牌概率，并比较不同出牌选择对后续概率的影响。这让你在面对「打这张还是打那张」的困惑时，有了数据依据。
+      </p>
+
+      <h3 data-zh="2. 危险牌识别" data-en="2. Dangerous Tile Detection">2. 危险牌识别</h3>
+
+      <p data-zh="根据对手的出牌记录，AI 能推算哪些牌对对手有利，帮你降低「点炮」风险。这种推断能力需要大量经验积累，AI 替你完成了这个复杂的推理过程。" data-en="Based on opponents' discard histories, AI can infer which tiles benefit them, reducing your risk of dealing them the winning tile. This inferential capability normally requires years of experience — AI does the complex reasoning for you.">
+        根据对手的出牌记录，AI 能推算哪些牌对对手有利，帮你降低「点炮」风险。这种推断能力需要大量经验积累，AI 替你完成了这个复杂的推理过程。
+      </p>
+
+      <h3 data-zh="3. 战略路径建议" data-en="3. Strategic Path Suggestions">3. 战略路径建议</h3>
+
+      <p data-zh="是追求高分番种还是稳健速胡？AI 会根据当前牌型与对局局势，给出最优策略建议。初学者可以快速学习，老手可以发现自己从未考虑过的方案。" data-en="Should you aim for a high-scoring hand or a quick, safe win? AI recommends the optimal strategy based on your current tiles and the game situation. Beginners learn rapidly; experienced players discover approaches they'd never considered.">
+        是追求高分番种还是稳健速胡？AI 会根据当前牌型与对局局势，给出最优策略建议。初学者可以快速学习，老手可以发现自己从未考虑过的方案。
+      </p>
+
+      <div class="tip-box">
+        <p class="tip-label" data-zh="实战建议" data-en="Practice Tip">实战建议</p>
+        <p data-zh="每次打完一局，花 3 分钟用 AI 回顾关键决策点：「第几轮打错了？」「如果换一张牌出，胡牌概率会提升多少？」这种针对性复盘比盲目多打效率高 10 倍。" data-en="After each game, spend 3 minutes reviewing key decision points with AI: 'Which round did I make the wrong play?' 'How much would my win probability improve with a different discard?' Targeted review like this is 10x more effective than blindly playing more.">
+          每次打完一局，花 3 分钟用 AI 回顾关键决策点：「第几轮打错了？」「如果换一张牌出，胡牌概率会提升多少？」这种针对性复盘比盲目多打效率高 10 倍。
+        </p>
+      </div>
+
+      <h2 data-zh="从入门到进阶：三个练习阶段" data-en="From Beginner to Advanced: Three Practice Stages">从入门到进阶：三个练习阶段</h2>
+
+      <h3 data-zh="阶段一：建立基础牌感（1—2 周）" data-en="Stage 1: Build Basic Tile Sense (1–2 Weeks)">阶段一：建立基础牌感（1—2 周）</h3>
+
+      <p data-zh="每局跟着 AI 的实时建议走，不需要自己独立判断。目标是通过大量观察，感受哪些牌型有价值，哪些组合容易胡牌。AI 是你的陪练，而不是拐杖。" data-en="Follow AI's real-time suggestions each game without making independent judgments. The goal is to develop a sense — through extensive observation — for which tile combinations have value and which leads to faster wins. AI is your sparring partner, not a crutch.">
+        每局跟着 AI 的实时建议走，不需要自己独立判断。目标是通过大量观察，感受哪些牌型有价值，哪些组合容易胡牌。AI 是你的陪练，而不是拐杖。
+      </p>
+
+      <h3 data-zh="阶段二：主动决策，AI 验证（第 3—4 周）" data-en="Stage 2: Make Your Own Decisions, Verify with AI (Weeks 3–4)">阶段二：主动决策，AI 验证（第 3—4 周）</h3>
+
+      <p data-zh="先自己做出出牌决策，再查看 AI 的建议，对比两者的差异。重点关注那些你的选择与 AI 不同的时刻，这些差异点正是你的成长空间。" data-en="Make your own discard decision first, then check AI's suggestion and compare the difference. Focus on moments where your choice diverges from AI's — these divergence points are exactly your growth opportunities.">
+        先自己做出出牌决策，再查看 AI 的建议，对比两者的差异。重点关注那些你的选择与 AI 不同的时刻，这些差异点正是你的成长空间。
+      </p>
+
+      <h3 data-zh="阶段三：独立对局，定期复盘（长期）" data-en="Stage 3: Independent Play, Regular Review (Long-term)">阶段三：独立对局，定期复盘（长期）</h3>
+
+      <p data-zh="独立打完一局，事后用 AI 全局复盘，专注于 2—3 个关键决策点的深度分析。这与职业选手的训练方式已经非常接近了。" data-en="Play a full game independently, then use AI for a post-game review, focusing on deep analysis of 2–3 key decision points. This closely mirrors how professional players train.">
+        独立打完一局，事后用 AI 全局复盘，专注于 2—3 个关键决策点的深度分析。这与职业选手的训练方式已经非常接近了。
+      </p>
+
+      <h2 data-zh="推荐：Mahjong AI — 你的随身麻将教练" data-en="Recommendation: Mahjong AI — Your Personal Mahjong Coach">推荐：Mahjong AI — 你的随身麻将教练</h2>
+
+      <p data-zh="<a href='/apps/mahjong-ai.html'>Mahjong AI</a> 是一款专为麻将爱好者设计的 AI 助手应用，支持 iOS 和 macOS。它将复杂的牌局分析包装成简洁易用的界面，让每个人都能享受到「AI 陪练」的乐趣。" data-en="<a href='/apps/mahjong-ai.html'>Mahjong AI</a> is an AI assistant app designed for mahjong enthusiasts on iOS and macOS. It wraps complex tile analysis into a clean, accessible interface so everyone can enjoy the benefits of AI-powered practice.">
+        <a href="/apps/mahjong-ai.html">Mahjong AI</a> 是一款专为麻将爱好者设计的 AI 助手应用，支持 iOS 和 macOS。它将复杂的牌局分析包装成简洁易用的界面，让每个人都能享受到「AI 陪练」的乐趣。
+      </p>
+
+      <ul>
+        <li data-zh="<strong>实时牌局分析：</strong>即时计算当前手牌的最优出牌方向，不再凭感觉盲打。" data-en="<strong>Real-time hand analysis:</strong> Instantly calculates the optimal discard direction — no more playing on instinct alone."><strong data-zh="实时牌局分析：" data-en="Real-time hand analysis:">实时牌局分析：</strong><span data-zh="即时计算当前手牌的最优出牌方向，不再凭感觉盲打。" data-en="Instantly calculates the optimal discard direction — no more playing on instinct alone.">即时计算当前手牌的最优出牌方向，不再凭感觉盲打。</span></li>
+        <li data-zh="<strong>多种玩法支持：</strong>支持国标麻将及多种地方玩法，覆盖大部分玩家需求。" data-en="<strong>Multiple ruleset support:</strong> Supports standard and regional mahjong variants, covering most players' needs."><strong data-zh="多种玩法支持：" data-en="Multiple ruleset support:">多种玩法支持：</strong><span data-zh="支持国标麻将及多种地方玩法，覆盖大部分玩家需求。" data-en="Supports standard and regional mahjong variants, covering most players' needs.">支持国标麻将及多种地方玩法，覆盖大部分玩家需求。</span></li>
+        <li data-zh="<strong>危险牌提示：</strong>根据对手出牌记录，智能提示高风险牌，降低点炮频率。" data-en="<strong>Danger tile warnings:</strong> Smart alerts based on opponents' discard patterns to reduce how often you deal the winning tile."><strong data-zh="危险牌提示：" data-en="Danger tile warnings:">危险牌提示：</strong><span data-zh="根据对手出牌记录，智能提示高风险牌，降低点炮频率。" data-en="Smart alerts based on opponents' discard patterns to reduce how often you deal the winning tile.">根据对手出牌记录，智能提示高风险牌，降低点炮频率。</span></li>
+        <li data-zh="<strong>简洁界面：</strong>符合 Apple 设计规范，深色模式全面支持，打牌体验不受干扰。" data-en="<strong>Clean interface:</strong> Follows Apple design standards with full dark mode support — nothing distracts from the game."><strong data-zh="简洁界面：" data-en="Clean interface:">简洁界面：</strong><span data-zh="符合 Apple 设计规范，深色模式全面支持，打牌体验不受干扰。" data-en="Follows Apple design standards with full dark mode support — nothing distracts from the game.">符合 Apple 设计规范，深色模式全面支持，打牌体验不受干扰。</span></li>
+      </ul>
+
+      <!-- Bottom CTA callout -->
+      <div class="app-callout" style="margin-top: var(--sp-12);">
+        <div class="app-callout-icon app-icon--orange" role="img" aria-label="Mahjong AI app icon"></div>
+        <div class="app-callout-body">
+          <p class="app-callout-name">Mahjong AI</p>
+          <p class="app-callout-desc" data-zh="免费下载 Mahjong AI，让每一局麻将都成为有效训练，更快成为牌桌上的赢家。" data-en="Download Mahjong AI for free. Make every game a training session and become the strongest player at your table, faster.">
+            免费下载 Mahjong AI，让每一局麻将都成为有效训练，更快成为牌桌上的赢家。
+          </p>
+          <div class="cta-group">
+            <a href="https://apps.apple.com/us/app/mahjong-ai-mahjong-assistant/id6758575182?uo=4"
+               class="btn btn-store" target="_blank" rel="noopener"
+               aria-label="在 App Store 下载 Mahjong AI">
+              <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+            </a>
+            <a href="/apps/mahjong-ai.html" class="btn btn-card-detail" data-zh="查看 Mahjong AI 详情" data-en="View Mahjong AI Details">查看 Mahjong AI 详情</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 data-zh="结语" data-en="Final Thoughts">结语</h2>
+
+      <p data-zh="麻将是一门需要长期修炼的技艺，但借助 AI 助手，这条修炼之路可以走得更快、更有方向感。无论你是刚入门的新手，还是想突破瓶颈的老手，<a href='/apps/mahjong-ai.html'>Mahjong AI</a> 都能成为你最称职的陪练伙伴。" data-en="Mahjong is a game that takes a lifetime to master, but with an AI assistant, the journey can be faster and more purposeful. Whether you're a beginner or an experienced player hitting a plateau, <a href='/apps/mahjong-ai.html'>Mahjong AI</a> is your most capable practice partner.">
+        麻将是一门需要长期修炼的技艺，但借助 AI 助手，这条修炼之路可以走得更快、更有方向感。无论你是刚入门的新手，还是想突破瓶颈的老手，<a href="/apps/mahjong-ai.html">Mahjong AI</a> 都能成为你最称职的陪练伙伴。
+      </p>
+
+    </article>
+  </div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-sub">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/" data-zh="首页" data-en="Home">首页</a>
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/fitpretty.html" data-zh="FitPretty" data-en="FitPretty">FitPretty</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 邓羽浩. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 邓羽浩. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

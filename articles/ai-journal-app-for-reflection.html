@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>AI 日记 App 如何帮你坚持每日反思 | How an AI Journal App Supports Daily Reflection</title>
+  <meta name="description" content="每天写日记太难坚持？本文介绍 AI 日记 App 如何通过智能提示、自动摘要帮你建立反思习惯，推荐 Noteit。| Struggling to journal consistently? Learn how an AI journal app like Noteit uses smart prompts and auto-summaries to build a lasting reflection habit.">
+  <meta name="author" content="Yuhao Deng · 邓羽浩">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/articles/ai-journal-app-for-reflection.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/articles/ai-journal-app-for-reflection.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/articles/ai-journal-app-for-reflection.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/articles/ai-journal-app-for-reflection.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tooapp.com/articles/ai-journal-app-for-reflection.html">
+  <meta property="og:title" content="AI 日记 App 如何帮你坚持每日反思 | How an AI Journal App Supports Daily Reflection">
+  <meta property="og:description" content="每天写日记太难坚持？AI 日记 App 通过智能提示与自动摘要帮你建立反思习惯。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/og-noteit.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How an AI Journal App Supports Daily Reflection | Noteit">
+  <meta name="twitter:description" content="Struggling to journal consistently? See how AI prompts and auto-summaries make reflection effortless.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/og-noteit.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#30D158">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI 日记 App 如何帮你坚持每日反思",
+    "description": "每天写日记太难坚持？本文介绍 AI 日记 App 如何通过智能提示、自动摘要帮你建立反思习惯，推荐 Noteit。",
+    "url": "https://tooapp.com/articles/ai-journal-app-for-reflection.html",
+    "datePublished": "2026-06-23",
+    "dateModified": "2026-06-23",
+    "author": {
+      "@type": "Person",
+      "name": "Yuhao Deng",
+      "alternateName": "邓羽浩",
+      "url": "https://tooapp.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Too Apps",
+      "url": "https://tooapp.com/"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ── Article Page Specific ─── */
+    .article-hero {
+      padding-block: var(--sp-16) var(--sp-12);
+      background: linear-gradient(160deg,
+        color-mix(in srgb, #30D158 8%, var(--surface)) 0%,
+        var(--surface) 100%);
+    }
+    .article-hero-inner {
+      max-width: 760px;
+    }
+    .article-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #30D158;
+      margin-bottom: var(--sp-4);
+    }
+    .article-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-6);
+    }
+    .article-hero-summary {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-8);
+      max-width: 58ch;
+    }
+    .article-meta {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-8);
+    }
+    /* ── Article Body ─── */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr min(680px, 100%) 1fr;
+      gap: var(--sp-8);
+      padding-block: var(--sp-16);
+    }
+    .article-layout > * { grid-column: 2; }
+    .prose h2 {
+      font-size: var(--size-xl);
+      margin-top: var(--sp-12);
+      margin-bottom: var(--sp-4);
+    }
+    .prose h3 {
+      font-size: var(--size-lg);
+      margin-top: var(--sp-8);
+      margin-bottom: var(--sp-3);
+    }
+    .prose p {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: none;
+    }
+    .prose ul, .prose ol {
+      margin-bottom: var(--sp-6);
+      padding-left: var(--sp-6);
+    }
+    .prose li {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-2);
+    }
+    .prose strong { color: var(--text-primary); }
+    /* ── App Callout Box ─── */
+    .app-callout {
+      background: var(--surface-raised);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: var(--sp-6);
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      margin-block: var(--sp-8);
+    }
+    .app-callout-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+    .app-callout-body { flex: 1; }
+    .app-callout-name {
+      font-size: var(--size-lg);
+      font-weight: 700;
+      margin-bottom: var(--sp-1);
+    }
+    .app-callout-desc {
+      font-size: var(--size-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-4);
+      max-width: none;
+    }
+    .app-callout .cta-group { flex-wrap: wrap; }
+    /* ── Tip Box ─── */
+    .tip-box {
+      background: color-mix(in srgb, #30D158 8%, var(--surface));
+      border-left: 4px solid #30D158;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--sp-4) var(--sp-6);
+      margin-block: var(--sp-6);
+    }
+    .tip-box p {
+      margin-bottom: 0;
+      font-size: var(--size-sm);
+    }
+    .tip-label {
+      font-size: var(--size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #30D158;
+      margin-bottom: var(--sp-2);
+    }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 768px) {
+      .app-callout { flex-direction: column; }
+      .article-layout { grid-template-columns: 1fr; padding-inline: var(--sp-4); }
+      .article-layout > * { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-sub">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span data-zh="文章" data-en="Articles">文章</span>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page" data-zh="AI 日记与反思" data-en="AI Journal & Reflection">AI 日记与反思</span>
+  </nav>
+</div>
+
+<!-- ===================== ARTICLE HERO ===================== -->
+<section class="article-hero" aria-labelledby="article-heading">
+  <div class="container article-hero-inner">
+    <p class="article-eyebrow" data-zh="日记 · 习惯 · 效率" data-en="Journal · Habit · Productivity">日记 · 习惯 · 效率</p>
+    <h1 id="article-heading" class="article-hero-title">
+      <span data-zh="AI 日记 App 如何帮你坚持每日反思" data-en="How an AI Journal App Supports Daily Reflection">AI 日记 App 如何帮你坚持每日反思</span>
+    </h1>
+    <p class="article-hero-summary" data-zh="每天写日记太难坚持？AI 智能提示与自动摘要让反思变成轻松的日常，而不是负担。" data-en="Struggling to journal consistently? AI-powered prompts and auto-summaries make daily reflection effortless — not a chore.">
+      每天写日记太难坚持？AI 智能提示与自动摘要让反思变成轻松的日常，而不是负担。
+    </p>
+    <p class="article-meta" data-zh="作者：邓羽浩 · 2026年6月" data-en="By Yuhao Deng · June 2026">作者：邓羽浩 · 2026年6月</p>
+
+    <!-- Top CTA -->
+    <div class="app-callout">
+      <div class="app-callout-icon app-icon--teal" role="img" aria-label="Noteit app icon"></div>
+      <div class="app-callout-body">
+        <p class="app-callout-name">Noteit</p>
+        <p class="app-callout-desc" data-zh="AI 驱动的日记与笔记应用，本地隐私存储，iOS &amp; macOS 免费下载。" data-en="AI-powered journal and notes app. Local-first, private, free on iOS &amp; macOS.">
+          AI 驱动的日记与笔记应用，本地隐私存储，iOS &amp; macOS 免费下载。
+        </p>
+        <div class="cta-group">
+          <a href="https://apps.apple.com/us/app/noteit-ai-journal-notes-diary/id1659178001?uo=4"
+             class="btn btn-store" target="_blank" rel="noopener"
+             aria-label="在 App Store 下载 Noteit">
+            <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+          </a>
+          <a href="/apps/noteit.html" class="btn btn-card-detail" data-zh="查看详情" data-en="Learn More">查看详情</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARTICLE BODY ===================== -->
+<main>
+  <div class="article-layout">
+    <article class="prose">
+
+      <h2 data-zh="为什么我们总是写不下去日记？" data-en="Why We Always Give Up on Journaling">为什么我们总是写不下去日记？</h2>
+
+      <p data-zh="很多人都有过这样的经历：买了一本精美的日记本，信誓旦旦地要每天记录，结果三天之后就停了。根本原因不是懒惰，而是写日记这件事本身设计得不够友好。" data-en="Many people have been here: you buy a beautiful notebook, vow to write every day, and then stop after three days. The root cause isn't laziness — it's that traditional journaling hasn't been designed to fit real life.">
+        很多人都有过这样的经历：买了一本精美的日记本，信誓旦旦地要每天记录，结果三天之后就停了。根本原因不是懒惰，而是写日记这件事本身设计得不够友好。
+      </p>
+
+      <p data-zh="面对空白页面，我们不知道从哪里下笔。忙碌了一天之后，大脑已经筋疲力尽，根本无法整理混乱的思绪。这就是为什么 AI 能够在这里发挥决定性的作用。" data-en="Staring at a blank page, we don't know where to start. After an exhausting day, our brain can't organize scattered thoughts. This is where AI makes all the difference.">
+        面对空白页面，我们不知道从哪里下笔。忙碌了一天之后，大脑已经筋疲力尽，根本无法整理混乱的思绪。这就是为什么 AI 能够在这里发挥决定性的作用。
+      </p>
+
+      <h2 data-zh="AI 日记 App 改变了什么？" data-en="What Does an AI Journal App Change?">AI 日记 App 改变了什么？</h2>
+
+      <h3 data-zh="1. 智能引导提示，告别空白焦虑" data-en="1. Smart Prompts — End Blank-Page Anxiety">1. 智能引导提示，告别空白焦虑</h3>
+
+      <p data-zh="传统日记本只有空白页。AI 日记 App 则会根据时间、心情、以往记录，生成个性化的写作提示。比如「今天有哪一件事让你感到意外？」或者「如果明天可以重复今天，你会改变什么？」这些问题让反思变得具体而有深度。" data-en="Traditional notebooks offer only blank pages. An AI journal app generates personalized prompts based on the time of day, your mood, and past entries — questions like 'What surprised you most today?' or 'If you could repeat today, what would you change?' These prompts make reflection concrete and meaningful.">
+        传统日记本只有空白页。AI 日记 App 则会根据时间、心情、以往记录，生成个性化的写作提示。比如「今天有哪一件事让你感到意外？」或者「如果明天可以重复今天，你会改变什么？」这些问题让反思变得具体而有深度。
+      </p>
+
+      <h3 data-zh="2. 自动生成摘要，让回顾变得容易" data-en="2. Auto-Generated Summaries — Effortless Review">2. 自动生成摘要，让回顾变得容易</h3>
+
+      <p data-zh="写完日记之后，AI 会自动提炼今天的关键情绪与事件，生成一段简洁的摘要。这意味着即便你写了很多，以后翻看时也能在几秒钟内把握核心。长期积累下来，这些摘要构成了你生命轨迹中最真实的缩影。" data-en="After you write, AI automatically distills the key emotions and events of the day into a concise summary. Even lengthy entries become scannable in seconds. Over time, these summaries form the most authentic chronicle of your life.">
+        写完日记之后，AI 会自动提炼今天的关键情绪与事件，生成一段简洁的摘要。这意味着即便你写了很多，以后翻看时也能在几秒钟内把握核心。长期积累下来，这些摘要构成了你生命轨迹中最真实的缩影。
+      </p>
+
+      <h3 data-zh="3. 情绪追踪，更了解自己" data-en="3. Mood Tracking — Know Yourself Better">3. 情绪追踪，更了解自己</h3>
+
+      <p data-zh="AI 通过分析你的日记内容，识别情绪趋势。你会看到自己在哪些时段最焦虑，哪些话题让你充满活力。这种数据化的自我认知，是普通日记本无法实现的。" data-en="By analyzing your entries, AI identifies mood trends. You'll see when you feel most anxious, which topics energize you, and how your emotional patterns shift over weeks. This data-driven self-awareness goes far beyond what a paper notebook can offer.">
+        AI 通过分析你的日记内容，识别情绪趋势。你会看到自己在哪些时段最焦虑，哪些话题让你充满活力。这种数据化的自我认知，是普通日记本无法实现的。
+      </p>
+
+      <div class="tip-box">
+        <p class="tip-label" data-zh="实用建议" data-en="Practical Tip">实用建议</p>
+        <p data-zh="每天只需 5 分钟。在睡前回答 AI 给出的一个提示问题，坚持 21 天后，你会发现反思已经成为一种习惯，而不再是任务。" data-en="Just 5 minutes a day. Answer one AI prompt before bed. After 21 days, you'll find reflection has become a habit, not a task.">
+          每天只需 5 分钟。在睡前回答 AI 给出的一个提示问题，坚持 21 天后，你会发现反思已经成为一种习惯，而不再是任务。
+        </p>
+      </div>
+
+      <h2 data-zh="建立反思习惯的三个步骤" data-en="Three Steps to Build a Reflection Habit">建立反思习惯的三个步骤</h2>
+
+      <p data-zh="心理学研究表明，建立习惯需要三个要素：触发器、例行动作、奖励。AI 日记 App 恰好为这三个要素都提供了支撑。" data-en="Psychological research shows habits require three elements: trigger, routine, and reward. An AI journal app addresses all three.">
+        心理学研究表明，建立习惯需要三个要素：触发器、例行动作、奖励。AI 日记 App 恰好为这三个要素都提供了支撑。
+      </p>
+
+      <ol>
+        <li data-zh="<strong>触发器：</strong>设置每晚 9 点的提醒通知，手机推送就是你的触发信号。" data-en="<strong>Trigger:</strong> Set a nightly reminder at 9 PM. The push notification is your cue."><strong data-zh="触发器：" data-en="Trigger:">触发器：</strong><span data-zh="设置每晚 9 点的提醒通知，手机推送就是你的触发信号。" data-en="Set a nightly reminder at 9 PM. The push notification is your cue.">设置每晚 9 点的提醒通知，手机推送就是你的触发信号。</span></li>
+        <li data-zh="<strong>例行动作：</strong>打开 App，回答一个 AI 提示，写满 3 句话即可。低门槛让你愿意每天都完成。" data-en="<strong>Routine:</strong> Open the app, answer one AI prompt, write at least 3 sentences. Low threshold keeps you coming back daily."><strong data-zh="例行动作：" data-en="Routine:">例行动作：</strong><span data-zh="打开 App，回答一个 AI 提示，写满 3 句话即可。低门槛让你愿意每天都完成。" data-en="Open the app, answer one AI prompt, write at least 3 sentences. Low threshold keeps you coming back daily.">打开 App，回答一个 AI 提示，写满 3 句话即可。低门槛让你愿意每天都完成。</span></li>
+        <li data-zh="<strong>奖励：</strong>连续打卡天数可视化、AI 生成的情绪报告，让你看到自己的坚持成果，形成正向激励。" data-en="<strong>Reward:</strong> Visible streak counts and AI-generated mood reports show your progress, creating positive reinforcement."><strong data-zh="奖励：" data-en="Reward:">奖励：</strong><span data-zh="连续打卡天数可视化、AI 生成的情绪报告，让你看到自己的坚持成果，形成正向激励。" data-en="Visible streak counts and AI-generated mood reports show your progress, creating positive reinforcement.">连续打卡天数可视化、AI 生成的情绪报告，让你看到自己的坚持成果，形成正向激励。</span></li>
+      </ol>
+
+      <h2 data-zh="隐私是日记 App 最重要的底线" data-en="Privacy Is the Non-Negotiable Foundation of Any Journal App">隐私是日记 App 最重要的底线</h2>
+
+      <p data-zh="日记是最私密的文字载体。在选择 AI 日记 App 时，隐私保护必须放在第一位。很多云端日记应用要求上传所有内容到服务器，这对隐私来说是极大的风险。" data-en="A journal is the most intimate form of writing. When choosing an AI journal app, privacy protection must come first. Many cloud-based apps upload all your content to their servers — a significant privacy risk.">
+        日记是最私密的文字载体。在选择 AI 日记 App 时，隐私保护必须放在第一位。很多云端日记应用要求上传所有内容到服务器，这对隐私来说是极大的风险。
+      </p>
+
+      <p data-zh="真正值得信任的日记 App 应该做到：数据本地存储、生物认证锁定、云同步可选且可控。这是判断一款日记 App 是否真正尊重用户的核心标准。" data-en="A truly trustworthy journal app must offer: local data storage, biometric lock, and optional — never mandatory — cloud sync. These are the core standards that distinguish apps that genuinely respect users.">
+        真正值得信任的日记 App 应该做到：数据本地存储、生物认证锁定、云同步可选且可控。这是判断一款日记 App 是否真正尊重用户的核心标准。
+      </p>
+
+      <h2 data-zh="推荐：Noteit — 最适合每日反思的 AI 日记 App" data-en="Recommendation: Noteit — The Best AI Journal App for Daily Reflection">推荐：Noteit — 最适合每日反思的 AI 日记 App</h2>
+
+      <p data-zh="<a href='/apps/noteit.html'>Noteit</a> 是一款专为日常反思设计的 AI 日记与笔记应用，支持 iOS 16+ 和 macOS 13+。它完全符合上述所有标准：本地存储、Face ID 保护、AI 摘要、情绪追踪、iCloud 可选同步。" data-en="<a href='/apps/noteit.html'>Noteit</a> is an AI journal and notes app designed for daily reflection, available on iOS 16+ and macOS 13+. It meets every standard above: local storage, Face ID protection, AI summaries, mood tracking, and optional iCloud sync.">
+        <a href="/apps/noteit.html">Noteit</a> 是一款专为日常反思设计的 AI 日记与笔记应用，支持 iOS 16+ 和 macOS 13+。它完全符合上述所有标准：本地存储、Face ID 保护、AI 摘要、情绪追踪、iCloud 可选同步。
+      </p>
+
+      <ul>
+        <li data-zh="<strong>AI 一键摘要：</strong>每天自动生成今日回顾，提炼关键情绪与事件。" data-en="<strong>One-tap AI summary:</strong> Auto-generates a daily recap, distilling key emotions and events."><strong data-zh="AI 一键摘要：" data-en="One-tap AI summary:">AI 一键摘要：</strong><span data-zh="每天自动生成今日回顾，提炼关键情绪与事件。" data-en="Auto-generates a daily recap, distilling key emotions and events.">每天自动生成今日回顾，提炼关键情绪与事件。</span></li>
+        <li data-zh="<strong>写作统计：</strong>可视化连续打卡天数、总字数、情绪分布，让坚持变得可见。" data-en="<strong>Writing stats:</strong> Visualize streaks, word count, and mood trends to make your consistency visible."><strong data-zh="写作统计：" data-en="Writing stats:">写作统计：</strong><span data-zh="可视化连续打卡天数、总字数、情绪分布，让坚持变得可见。" data-en="Visualize streaks, word count, and mood trends to make your consistency visible.">可视化连续打卡天数、总字数、情绪分布，让坚持变得可见。</span></li>
+        <li data-zh="<strong>「一年前的今天」：</strong>在时间轴中重温过去，让日记真正有了温度。" data-en="<strong>'On This Day':</strong> Revisit past memories on the timeline and make your journal truly come alive."><strong data-zh="「一年前的今天」：" data-en="'On This Day':">「一年前的今天」：</strong><span data-zh="在时间轴中重温过去，让日记真正有了温度。" data-en="Revisit past memories on the timeline and make your journal truly come alive.">在时间轴中重温过去，让日记真正有了温度。</span></li>
+        <li data-zh="<strong>完全免费核心功能：</strong>无限日记条目、全文搜索、本地存储，无需订阅。" data-en="<strong>Free core features:</strong> Unlimited entries, full-text search, and local storage — no subscription required."><strong data-zh="完全免费核心功能：" data-en="Free core features:">完全免费核心功能：</strong><span data-zh="无限日记条目、全文搜索、本地存储，无需订阅。" data-en="Unlimited entries, full-text search, and local storage — no subscription required.">无限日记条目、全文搜索、本地存储，无需订阅。</span></li>
+      </ul>
+
+      <!-- Bottom CTA callout -->
+      <div class="app-callout" style="margin-top: var(--sp-12);">
+        <div class="app-callout-icon app-icon--teal" role="img" aria-label="Noteit app icon"></div>
+        <div class="app-callout-body">
+          <p class="app-callout-name">Noteit</p>
+          <p class="app-callout-desc" data-zh="立即免费下载，今天就写下你的第一篇 AI 日记，让反思成为习惯。" data-en="Download free now. Write your first AI-assisted entry today and make reflection a lasting habit.">
+            立即免费下载，今天就写下你的第一篇 AI 日记，让反思成为习惯。
+          </p>
+          <div class="cta-group">
+            <a href="https://apps.apple.com/us/app/noteit-ai-journal-notes-diary/id1659178001?uo=4"
+               class="btn btn-store" target="_blank" rel="noopener"
+               aria-label="在 App Store 下载 Noteit">
+              <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+            </a>
+            <a href="/apps/noteit.html" class="btn btn-card-detail" data-zh="查看 Noteit 详情" data-en="View Noteit Details">查看 Noteit 详情</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 data-zh="结语" data-en="Final Thoughts">结语</h2>
+
+      <p data-zh="写日记不应该是一件有压力的事。AI 日记 App 的价值在于降低启动门槛、让反思变得轻松自然。只要选对工具，坚持每日反思并不难。今天就下载 <a href='/apps/noteit.html'>Noteit</a>，写下你今天的第一句话。" data-en="Journaling shouldn't feel stressful. The value of an AI journal app lies in lowering the barrier to entry and making reflection feel natural. With the right tool, daily reflection is entirely achievable. Download <a href='/apps/noteit.html'>Noteit</a> today and write your first line.">
+        写日记不应该是一件有压力的事。AI 日记 App 的价值在于降低启动门槛、让反思变得轻松自然。只要选对工具，坚持每日反思并不难。今天就下载 <a href="/apps/noteit.html">Noteit</a>，写下你今天的第一句话。
+      </p>
+
+    </article>
+  </div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-sub">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/" data-zh="首页" data-en="Home">首页</a>
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/fitpretty.html" data-zh="FitPretty" data-en="FitPretty">FitPretty</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 邓羽浩. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 邓羽浩. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

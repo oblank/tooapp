@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>Noteit — AI 日记与笔记应用 | AI Journal &amp; Notes App</title>
+  <meta name="description" content="Noteit 是一款 AI 驱动的日记与笔记应用，帮助你记录思绪、整理回忆，随时回顾过去的点滴。支持 iOS &amp; macOS。| AI-powered journal and notes app to capture thoughts and revisit memories. For iOS &amp; macOS.">
+  <meta name="author" content="Yuhao Deng · 邓羽浩">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/apps/noteit.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/apps/noteit.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/apps/noteit.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/apps/noteit.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tooapp.com/apps/noteit.html">
+  <meta property="og:title" content="Noteit — AI 日记与笔记 | AI Journal &amp; Notes">
+  <meta property="og:description" content="AI 驱动的日记与笔记应用，帮助你记录思绪、整理回忆，随时回顾过去的点滴。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/og-noteit.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Noteit — AI Journal &amp; Notes App">
+  <meta name="twitter:description" content="AI-powered journal and notes app to capture thoughts and revisit memories.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/og-noteit.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#30D158">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Noteit - AI Journal, Notes, Diary",
+    "alternateName": "Noteit",
+    "description": "AI-powered journal and notes app to capture thoughts, organize memories, and revisit your past.",
+    "url": "https://tooapp.com/apps/noteit.html",
+    "downloadUrl": "https://apps.apple.com/us/app/noteit-ai-journal-notes-diary/id1659178001?uo=4",
+    "operatingSystem": "iOS 16+, macOS 13+",
+    "applicationCategory": "ProductivityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Yuhao Deng",
+      "alternateName": "邓羽浩",
+      "url": "https://tooapp.com/"
+    },
+    "screenshot": "https://tooapp.com/assets/img/noteit-screenshot.png"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ── App Page Specific ─── */
+    .app-hero {
+      padding-block: var(--sp-20);
+      background: linear-gradient(160deg, color-mix(in srgb, #30D158 8%, var(--surface)) 0%, var(--surface) 100%);
+    }
+    .app-hero-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: var(--sp-8);
+    }
+    .app-hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+      box-shadow: var(--shadow-lg);
+      flex-shrink: 0;
+    }
+    .app-hero-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #30D158;
+      margin-bottom: var(--sp-2);
+    }
+    .app-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-4);
+    }
+    .app-hero-desc {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: 52ch;
+    }
+    .section-screenshots { background: var(--surface-raised); }
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .screenshot-frame {
+      aspect-ratio: 9/19.5;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .screenshot-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      padding: var(--sp-4);
+      text-align: center;
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+    }
+    .screenshot-placeholder .icon { font-size: 2rem; }
+    .section-features { background: var(--surface); }
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .feature-item {
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      padding: var(--sp-4);
+      background: var(--surface-raised);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+    .feature-emoji { font-size: 1.5rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .feature-text h4 {
+      font-size: var(--size-sm);
+      font-weight: 700;
+      margin-bottom: var(--sp-1);
+    }
+    .feature-text p {
+      font-size: var(--size-xs);
+      color: var(--text-secondary);
+      max-width: none;
+    }
+    .section-usecases { background: var(--surface-raised); }
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--sp-6);
+      margin-top: var(--sp-8);
+    }
+    .usecase-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      border: 1px solid var(--border-subtle);
+    }
+    .usecase-icon { font-size: 2rem; margin-bottom: var(--sp-3); line-height: 1; }
+    .usecase-title { font-size: var(--size-base); font-weight: 700; margin-bottom: var(--sp-2); }
+    .usecase-desc { font-size: var(--size-sm); color: var(--text-secondary); max-width: none; }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 600px) {
+      .app-hero-inner { grid-template-columns: 1fr; }
+      .app-hero-icon { width: 88px; height: 88px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-sub">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/#why" data-zh="我们的优势" data-en="Why Us">我们的优势</a>
+      <a href="/#faq" data-zh="常见问题" data-en="FAQ">常见问题</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <a href="/#apps" data-zh="应用" data-en="Apps">应用</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page">Noteit</span>
+  </nav>
+</div>
+
+<!-- ===================== APP HERO ===================== -->
+<section class="app-hero" aria-labelledby="app-hero-heading">
+  <div class="container app-hero-inner">
+    <div class="app-hero-icon app-icon--teal" role="img" aria-label="Noteit app icon"></div>
+    <div>
+      <p class="app-hero-eyebrow" data-zh="AI 日记 · 笔记 · 效率" data-en="AI Journal · Notes · Productivity">AI 日记 · 笔记 · 效率</p>
+      <h1 id="app-hero-heading" class="app-hero-title">
+        <span data-zh="Noteit — 让每一天值得记录" data-en="Noteit — Every Day Worth Remembering">Noteit — 让每一天值得记录</span>
+      </h1>
+      <p class="app-hero-desc" data-zh="AI 驱动的日记与笔记应用，帮助你记录思绪、整理回忆，随时回顾过去的点滴。隐私安全，本地存储，写下属于你的故事。" data-en="AI-powered journal and notes diary to capture thoughts, organize memories, and revisit your past. Private, local-first, and crafted for reflection.">
+        AI 驱动的日记与笔记应用，帮助你记录思绪、整理回忆，随时回顾过去的点滴。隐私安全，本地存储，写下属于你的故事。
+      </p>
+      <div class="cta-group">
+        <a href="https://apps.apple.com/us/app/noteit-ai-journal-notes-diary/id1659178001?uo=4"
+           class="btn btn-store btn-large" target="_blank" rel="noopener"
+           aria-label="在 App Store 下载 Noteit">
+          <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+        </a>
+        <span style="font-size:var(--size-xs);color:var(--text-tertiary);" data-zh="iOS 16+ · macOS 13+" data-en="iOS 16+ · macOS 13+">iOS 16+ · macOS 13+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCREENSHOTS ===================== -->
+<section class="section-screenshots" aria-labelledby="screenshots-heading">
+  <div class="container">
+    <h2 id="screenshots-heading" class="section-title">
+      <span data-zh="应用截图" data-en="Screenshots">应用截图</span>
+    </h2>
+    <p class="section-sub" data-zh="简洁优雅的界面，专注于写作体验" data-en="Clean, elegant interface focused on the writing experience.">简洁优雅的界面，专注于写作体验</p>
+    <div class="screenshot-gallery" role="list">
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">📖</span>
+          <span data-zh="日记首页" data-en="Journal Home">日记首页</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">✏️</span>
+          <span data-zh="新建日记" data-en="New Entry">新建日记</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">🤖</span>
+          <span data-zh="AI 摘要" data-en="AI Summary">AI 摘要</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">🗂️</span>
+          <span data-zh="回忆时间轴" data-en="Memory Timeline">回忆时间轴</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">🔍</span>
+          <span data-zh="全文搜索" data-en="Full-text Search">全文搜索</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="section-features" aria-labelledby="features-heading">
+  <div class="container">
+    <h2 id="features-heading" class="section-title">
+      <span data-zh="核心功能" data-en="Key Features">核心功能</span>
+    </h2>
+    <p class="section-sub" data-zh="为日记爱好者精心设计的每一个细节" data-en="Every detail thoughtfully designed for journal enthusiasts.">为日记爱好者精心设计的每一个细节</p>
+    <ul class="feature-list" role="list">
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🤖</span>
+        <div class="feature-text">
+          <h4 data-zh="AI 智能摘要" data-en="AI Smart Summary">AI 智能摘要</h4>
+          <p data-zh="一键生成今日回顾，AI 帮你提炼情绪与关键事件，让回忆更清晰。" data-en="One tap to generate a daily recap — AI distills emotions and key events into clear insights.">一键生成今日回顾，AI 帮你提炼情绪与关键事件，让回忆更清晰。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🔒</span>
+        <div class="feature-text">
+          <h4 data-zh="本地隐私存储" data-en="Local Private Storage">本地隐私存储</h4>
+          <p data-zh="所有日记存储在本地，不上传服务器，Face ID / Touch ID 保护，你的故事只属于你。" data-en="All entries stay on-device, never uploaded. Face ID / Touch ID protection — your story, yours alone.">所有日记存储在本地，不上传服务器，Face ID / Touch ID 保护，你的故事只属于你。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📅</span>
+        <div class="feature-text">
+          <h4 data-zh="时间轴回顾" data-en="Timeline Review">时间轴回顾</h4>
+          <p data-zh="按日、月、年浏览你的记录，「一年前的今天」功能让你随时重温过去。" data-en="Browse by day, month, or year. The 'On This Day' feature surfaces memories from the past.">按日、月、年浏览你的记录，「一年前的今天」功能让你随时重温过去。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🌙</span>
+        <div class="feature-text">
+          <h4 data-zh="深色模式" data-en="Dark Mode">深色模式</h4>
+          <p data-zh="完美适配系统深色模式，夜间书写更护眼，专注写作不受干扰。" data-en="Full dark mode support — easier on your eyes at night and distraction-free writing.">完美适配系统深色模式，夜间书写更护眼，专注写作不受干扰。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🔍</span>
+        <div class="feature-text">
+          <h4 data-zh="全文搜索" data-en="Full-text Search">全文搜索</h4>
+          <p data-zh="快速定位任意一条记录，支持关键词搜索，找到你想要的那一刻。" data-en="Instantly find any entry with keyword search — locate that specific moment in seconds.">快速定位任意一条记录，支持关键词搜索，找到你想要的那一刻。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">☁️</span>
+        <div class="feature-text">
+          <h4 data-zh="iCloud 同步" data-en="iCloud Sync">iCloud 同步</h4>
+          <p data-zh="可选 iCloud 在 iPhone、iPad、Mac 间无缝同步，多端无缝续写。" data-en="Optional iCloud sync across iPhone, iPad, and Mac — pick up right where you left off.">可选 iCloud 在 iPhone、iPad、Mac 间无缝同步，多端无缝续写。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🏷️</span>
+        <div class="feature-text">
+          <h4 data-zh="标签与分类" data-en="Tags &amp; Categories">标签与分类</h4>
+          <p data-zh="为日记打标签，轻松归类工作、生活、旅行等不同场景。" data-en="Tag entries and organize by work, life, travel, and more — keep everything in order.">为日记打标签，轻松归类工作、生活、旅行等不同场景。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📊</span>
+        <div class="feature-text">
+          <h4 data-zh="写作统计" data-en="Writing Stats">写作统计</h4>
+          <p data-zh="追踪连续打卡天数、总字数、情绪分布，见证自己的成长轨迹。" data-en="Track streaks, total word count, mood trends, and witness your personal growth.">追踪连续打卡天数、总字数、情绪分布，见证自己的成长轨迹。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== USE CASES ===================== -->
+<section class="section-usecases" aria-labelledby="usecases-heading">
+  <div class="container">
+    <h2 id="usecases-heading" class="section-title">
+      <span data-zh="适合哪些人？" data-en="Who Is It For?">适合哪些人？</span>
+    </h2>
+    <p class="section-sub" data-zh="无论你是谁，Noteit 都能成为你的记录伙伴" data-en="Whether you're a student, professional, or creative — Noteit grows with you.">无论你是谁，Noteit 都能成为你的记录伙伴</p>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">🎓</div>
+        <h3 class="usecase-title" data-zh="学生 &amp; 学习者" data-en="Students &amp; Learners">学生 &amp; 学习者</h3>
+        <p class="usecase-desc" data-zh="记录每日学习收获，用 AI 整理笔记要点，轻松备考复习。" data-en="Log daily learnings, let AI organize key notes, and review efficiently before exams.">记录每日学习收获，用 AI 整理笔记要点，轻松备考复习。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">💼</div>
+        <h3 class="usecase-title" data-zh="职场人士" data-en="Professionals">职场人士</h3>
+        <p class="usecase-desc" data-zh="每日复盘工作进展，记录灵感与决策，追踪职业成长。" data-en="Review daily work progress, capture ideas and decisions, and track career growth.">每日复盘工作进展，记录灵感与决策，追踪职业成长。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">✈️</div>
+        <h3 class="usecase-title" data-zh="旅行者" data-en="Travelers">旅行者</h3>
+        <p class="usecase-desc" data-zh="随手记录旅途见闻，附上照片与位置，让每段旅程都有迹可循。" data-en="Journal travel experiences with photos and location, so every journey stays vivid forever.">随手记录旅途见闻，附上照片与位置，让每段旅程都有迹可循。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">💆</div>
+        <h3 class="usecase-title" data-zh="情绪管理" data-en="Mental Wellness">情绪管理</h3>
+        <p class="usecase-desc" data-zh="倾诉日常情绪，AI 辅助情绪分析，建立内心平和的自我认知。" data-en="Express daily emotions; AI-assisted mood analysis helps build self-awareness and inner calm.">倾诉日常情绪，AI 辅助情绪分析，建立内心平和的自我认知。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="section-faq" aria-labelledby="faq-heading">
+  <div class="container faq-container">
+    <h2 id="faq-heading" class="section-title">
+      <span data-zh="常见问题" data-en="FAQ">常见问题</span>
+    </h2>
+    <dl class="faq-list">
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="Noteit 是免费的吗？" data-en="Is Noteit free?">Noteit 是免费的吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="核心功能完全免费，包括无限日记、本地存储和全文搜索。高级 AI 功能和主题皮肤可选购。" data-en="Core features are completely free, including unlimited entries, local storage, and full-text search. Advanced AI features and themes are optional purchases.">核心功能完全免费，包括无限日记、本地存储和全文搜索。高级 AI 功能和主题皮肤可选购。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="我的日记数据安全吗？" data-en="Is my journal data safe?">我的日记数据安全吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="所有数据存储在本地设备，不上传到任何服务器。支持 Face ID / Touch ID 锁定。iCloud 同步为可选功能，数据始终由你掌控。" data-en="All data is stored on your local device and never uploaded to any server. Face ID / Touch ID locking is supported. iCloud sync is optional and always under your control.">所有数据存储在本地设备，不上传到任何服务器。支持 Face ID / Touch ID 锁定。iCloud 同步为可选功能，数据始终由你掌控。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="支持哪些平台？" data-en="Which platforms are supported?">支持哪些平台？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="Noteit 支持 iOS 16+、iPadOS 16+ 和 macOS 13+，一次购买全平台畅用。" data-en="Noteit supports iOS 16+, iPadOS 16+, and macOS 13+. One purchase covers all platforms.">Noteit 支持 iOS 16+、iPadOS 16+ 和 macOS 13+，一次购买全平台畅用。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="AI 功能需要网络连接吗？" data-en="Does AI require an internet connection?">AI 功能需要网络连接吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="部分 AI 功能需要网络连接，但所有基础写作和存储功能在离线状态下均可正常使用。" data-en="Some AI features require an internet connection, but all basic writing and storage features work fully offline.">部分 AI 功能需要网络连接，但所有基础写作和存储功能在离线状态下均可正常使用。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="如何导出日记？" data-en="How do I export my journal?">如何导出日记？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="支持导出为 PDF 或纯文本格式，方便备份或与他人分享。" data-en="Export as PDF or plain text for easy backup or sharing with others.">支持导出为 PDF 或纯文本格式，方便备份或与他人分享。</p>
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== CTA BANNER ===================== -->
+<section class="section-cta-banner" aria-labelledby="cta-heading">
+  <div class="container cta-banner-inner">
+    <h2 id="cta-heading" data-zh="开始记录你的故事" data-en="Start Recording Your Story">开始记录你的故事</h2>
+    <p data-zh="免费下载 Noteit，今天就开始你的第一篇日记。" data-en="Download Noteit for free and write your first entry today.">
+      免费下载 Noteit，今天就开始你的第一篇日记。
+    </p>
+    <a href="https://apps.apple.com/us/app/noteit-ai-journal-notes-diary/id1659178001?uo=4"
+       class="btn btn-primary btn-large" target="_blank" rel="noopener"
+       aria-label="在 App Store 下载 Noteit">
+      <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-sub">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/fitpretty.html" data-zh="FitPretty" data-en="FitPretty">FitPretty</a>
+      <a href="/articles/ai-journal-app-for-reflection.html" data-zh="日记文章" data-en="Journal Article">相关文章</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 邓羽浩. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 邓羽浩. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

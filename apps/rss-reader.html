@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>知了 — RSS 智能聚合阅读器 | Smart RSS Reader App</title>
+  <meta name="description" content="知了是一款 RSS 智能聚合阅读器，订阅全球优质内容，AI 摘要助你高效获取信息，告别信息过载。| Smart RSS reader with AI summaries to aggregate the best global content efficiently. Goodbye, information overload.">
+  <meta name="author" content="Yuhao Deng · 邓羽浩">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/apps/rss-reader.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/apps/rss-reader.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/apps/rss-reader.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/apps/rss-reader.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tooapp.com/apps/rss-reader.html">
+  <meta property="og:title" content="知了 — RSS 智能聚合阅读器 | Smart RSS Reader">
+  <meta property="og:description" content="RSS 智能聚合阅读器，AI 摘要助你高效阅读，告别信息过载。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/og-rss-reader.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="知了 — Smart RSS Reader App">
+  <meta name="twitter:description" content="Smart RSS reader with AI summaries to cut through information overload.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/og-rss-reader.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#5E5CE6">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "知了 - RSS智能聚合阅读",
+    "alternateName": "Zhile RSS Reader",
+    "description": "Smart RSS reader with AI summaries to aggregate and read the best global content efficiently.",
+    "url": "https://tooapp.com/apps/rss-reader.html",
+    "downloadUrl": "https://apps.apple.com/us/app/%E7%9F%A5%E4%BA%86-rss%E6%99%BA%E8%83%BD%E8%81%9A%E5%90%88%E9%98%85%E8%AF%BB/id1525056652?uo=4",
+    "operatingSystem": "iOS 16+, macOS 13+",
+    "applicationCategory": "NewsApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Yuhao Deng",
+      "alternateName": "邓羽浩",
+      "url": "https://tooapp.com/"
+    },
+    "screenshot": "https://tooapp.com/assets/img/rss-reader-screenshot.png"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ── App Page Specific ─── */
+    .app-hero {
+      padding-block: var(--sp-20);
+      background: linear-gradient(160deg, color-mix(in srgb, #5E5CE6 8%, var(--surface)) 0%, var(--surface) 100%);
+    }
+    .app-hero-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: var(--sp-8);
+    }
+    .app-hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+      box-shadow: var(--shadow-lg);
+      flex-shrink: 0;
+    }
+    .app-hero-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #5E5CE6;
+      margin-bottom: var(--sp-2);
+    }
+    .app-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-4);
+    }
+    .app-hero-desc {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: 52ch;
+    }
+    .section-screenshots { background: var(--surface-raised); }
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .screenshot-frame {
+      aspect-ratio: 9/19.5;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .screenshot-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      padding: var(--sp-4);
+      text-align: center;
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+    }
+    .screenshot-placeholder .icon { font-size: 2rem; }
+    .section-features { background: var(--surface); }
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .feature-item {
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      padding: var(--sp-4);
+      background: var(--surface-raised);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+    .feature-emoji { font-size: 1.5rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .feature-text h4 { font-size: var(--size-sm); font-weight: 700; margin-bottom: var(--sp-1); }
+    .feature-text p { font-size: var(--size-xs); color: var(--text-secondary); max-width: none; }
+    .section-usecases { background: var(--surface-raised); }
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--sp-6);
+      margin-top: var(--sp-8);
+    }
+    .usecase-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      border: 1px solid var(--border-subtle);
+    }
+    .usecase-icon { font-size: 2rem; margin-bottom: var(--sp-3); line-height: 1; }
+    .usecase-title { font-size: var(--size-base); font-weight: 700; margin-bottom: var(--sp-2); }
+    .usecase-desc { font-size: var(--size-sm); color: var(--text-secondary); max-width: none; }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 600px) {
+      .app-hero-inner { grid-template-columns: 1fr; }
+      .app-hero-icon { width: 88px; height: 88px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-sub">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/#why" data-zh="我们的优势" data-en="Why Us">我们的优势</a>
+      <a href="/#faq" data-zh="常见问题" data-en="FAQ">常见问题</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <a href="/#apps" data-zh="应用" data-en="Apps">应用</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page" data-zh="知了" data-en="知了 RSS">知了</span>
+  </nav>
+</div>
+
+<!-- ===================== APP HERO ===================== -->
+<section class="app-hero" aria-labelledby="app-hero-heading">
+  <div class="container app-hero-inner">
+    <div class="app-hero-icon app-icon--indigo" role="img" aria-label="知了 app icon"></div>
+    <div>
+      <p class="app-hero-eyebrow" data-zh="RSS · 智能阅读 · 信息聚合" data-en="RSS · Smart Reading · Content Aggregation">RSS · 智能阅读 · 信息聚合</p>
+      <h1 id="app-hero-heading" class="app-hero-title">
+        <span data-zh="知了 — 聪明地阅读这个世界" data-en="知了 — Read the World Smarter">知了 — 聪明地阅读这个世界</span>
+      </h1>
+      <p class="app-hero-desc" data-zh="RSS 智能聚合阅读器，订阅全球优质内容，AI 摘要助你高效获取信息，彻底告别信息过载，找回深度阅读的乐趣。" data-en="Smart RSS reader that aggregates the world's best content. AI summaries help you absorb what matters — say goodbye to information overload and rediscover deep reading.">
+        RSS 智能聚合阅读器，订阅全球优质内容，AI 摘要助你高效获取信息，彻底告别信息过载，找回深度阅读的乐趣。
+      </p>
+      <div class="cta-group">
+        <a href="https://apps.apple.com/us/app/%E7%9F%A5%E4%BA%86-rss%E6%99%BA%E8%83%BD%E8%81%9A%E5%90%88%E9%98%85%E8%AF%BB/id1525056652?uo=4"
+           class="btn btn-store btn-large" target="_blank" rel="noopener"
+           aria-label="在 App Store 下载知了">
+          <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+        </a>
+        <span style="font-size:var(--size-xs);color:var(--text-tertiary);" data-zh="iOS 16+ · macOS 13+" data-en="iOS 16+ · macOS 13+">iOS 16+ · macOS 13+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCREENSHOTS ===================== -->
+<section class="section-screenshots" aria-labelledby="screenshots-heading">
+  <div class="container">
+    <h2 id="screenshots-heading" class="section-title">
+      <span data-zh="应用截图" data-en="Screenshots">应用截图</span>
+    </h2>
+    <p class="section-sub" data-zh="清晰专注的阅读界面，让内容成为主角" data-en="A clean, focused reading interface that puts content front and center.">清晰专注的阅读界面，让内容成为主角</p>
+    <div class="screenshot-gallery" role="list">
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">📰</span>
+          <span data-zh="订阅列表" data-en="Feed List">订阅列表</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">📖</span>
+          <span data-zh="文章阅读" data-en="Article Reader">文章阅读</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">🤖</span>
+          <span data-zh="AI 摘要" data-en="AI Summary">AI 摘要</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">⭐</span>
+          <span data-zh="收藏夹" data-en="Favorites">收藏夹</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">🔔</span>
+          <span data-zh="推送通知" data-en="Notifications">推送通知</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="section-features" aria-labelledby="features-heading">
+  <div class="container">
+    <h2 id="features-heading" class="section-title">
+      <span data-zh="核心功能" data-en="Key Features">核心功能</span>
+    </h2>
+    <p class="section-sub" data-zh="为高效阅读者打造的每一项功能" data-en="Every feature built for the efficient, curious reader.">为高效阅读者打造的每一项功能</p>
+    <ul class="feature-list" role="list">
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🤖</span>
+        <div class="feature-text">
+          <h4 data-zh="AI 文章摘要" data-en="AI Article Summaries">AI 文章摘要</h4>
+          <p data-zh="一键生成文章要点，节省阅读时间，快速判断是否值得深读。" data-en="One-tap article summaries save reading time and help you decide what's worth reading deeply.">一键生成文章要点，节省阅读时间，快速判断是否值得深读。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📡</span>
+        <div class="feature-text">
+          <h4 data-zh="全平台 RSS 支持" data-en="Universal RSS Support">全平台 RSS 支持</h4>
+          <p data-zh="支持标准 RSS、Atom 格式，兼容全球主流内容平台和博客。" data-en="Full support for RSS and Atom formats, compatible with all major content platforms and blogs.">支持标准 RSS、Atom 格式，兼容全球主流内容平台和博客。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📂</span>
+        <div class="feature-text">
+          <h4 data-zh="订阅源分组管理" data-en="Feed Grouping">订阅源分组管理</h4>
+          <p data-zh="按话题、语言或优先级分组管理订阅源，打造专属信息频道。" data-en="Group feeds by topic, language, or priority — build your personal information channel.">按话题、语言或优先级分组管理订阅源，打造专属信息频道。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🌙</span>
+        <div class="feature-text">
+          <h4 data-zh="沉浸式阅读模式" data-en="Immersive Reading Mode">沉浸式阅读模式</h4>
+          <p data-zh="去除广告和干扰元素，纯净排版让你专注于内容本身。" data-en="Strip ads and distractions for a clean, focused reading experience with beautiful typography.">去除广告和干扰元素，纯净排版让你专注于内容本身。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">⬇️</span>
+        <div class="feature-text">
+          <h4 data-zh="离线缓存阅读" data-en="Offline Reading">离线缓存阅读</h4>
+          <p data-zh="自动缓存文章，飞行模式或无网络环境下同样畅读不断。" data-en="Auto-cached articles ensure uninterrupted reading in airplane mode or without internet.">自动缓存文章，飞行模式或无网络环境下同样畅读不断。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">☁️</span>
+        <div class="feature-text">
+          <h4 data-zh="多端同步" data-en="Multi-device Sync">多端同步</h4>
+          <p data-zh="订阅源、已读状态、收藏内容跨设备同步，随时随地无缝续读。" data-en="Sync feeds, read status, and favorites across all your devices — seamlessly continue anywhere.">订阅源、已读状态、收藏内容跨设备同步，随时随地无缝续读。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🔔</span>
+        <div class="feature-text">
+          <h4 data-zh="智能推送通知" data-en="Smart Push Notifications">智能推送通知</h4>
+          <p data-zh="针对重要订阅源设置通知，第一时间获取最新内容，不错过精华。" data-en="Set notifications for key feeds — be the first to know when important content drops.">针对重要订阅源设置通知，第一时间获取最新内容，不错过精华。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🔎</span>
+        <div class="feature-text">
+          <h4 data-zh="全文搜索" data-en="Full-text Search">全文搜索</h4>
+          <p data-zh="搜索所有已缓存文章，快速找到你记得却忘了在哪里读到的那篇内容。" data-en="Search all cached articles instantly — find that piece you remember but can't locate.">搜索所有已缓存文章，快速找到你记得却忘了在哪里读到的那篇内容。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== USE CASES ===================== -->
+<section class="section-usecases" aria-labelledby="usecases-heading">
+  <div class="container">
+    <h2 id="usecases-heading" class="section-title">
+      <span data-zh="谁在使用知了？" data-en="Who Uses 知了?">谁在使用知了？</span>
+    </h2>
+    <p class="section-sub" data-zh="适合每一位想从信息噪音中找回主动权的读者" data-en="For every reader who wants to take back control from the information noise.">适合每一位想从信息噪音中找回主动权的读者</p>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">💻</div>
+        <h3 class="usecase-title" data-zh="科技从业者" data-en="Tech Professionals">科技从业者</h3>
+        <p class="usecase-desc" data-zh="订阅 Hacker News、TechCrunch 等科技媒体，用 AI 快速过滤掌握行业动态。" data-en="Subscribe to Hacker News, TechCrunch, and more. Use AI summaries to stay on top of tech trends.">订阅 Hacker News、TechCrunch 等科技媒体，用 AI 快速过滤掌握行业动态。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">📈</div>
+        <h3 class="usecase-title" data-zh="投资者 &amp; 研究员" data-en="Investors &amp; Researchers">投资者 &amp; 研究员</h3>
+        <p class="usecase-desc" data-zh="聚合财经新闻与行业报告，AI 摘要节省研究时间，及时捕捉市场信号。" data-en="Aggregate finance news and industry reports. AI summaries save research time and capture market signals.">聚合财经新闻与行业报告，AI 摘要节省研究时间，及时捕捉市场信号。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">✍️</div>
+        <h3 class="usecase-title" data-zh="内容创作者" data-en="Content Creators">内容创作者</h3>
+        <p class="usecase-desc" data-zh="订阅优质博客获取选题灵感，收藏精华文章作为创作素材。" data-en="Subscribe to top blogs for content inspiration and bookmark great articles as creative material.">订阅优质博客获取选题灵感，收藏精华文章作为创作素材。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">🎓</div>
+        <h3 class="usecase-title" data-zh="学术研究者" data-en="Academic Researchers">学术研究者</h3>
+        <p class="usecase-desc" data-zh="订阅学术期刊 RSS，第一时间获取领域最新论文，利用 AI 摘要快速筛选相关研究。" data-en="Subscribe to journal RSS feeds and use AI summaries to quickly filter relevant research.">订阅学术期刊 RSS，第一时间获取领域最新论文，利用 AI 摘要快速筛选相关研究。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="section-faq" aria-labelledby="faq-heading">
+  <div class="container faq-container">
+    <h2 id="faq-heading" class="section-title">
+      <span data-zh="常见问题" data-en="FAQ">常见问题</span>
+    </h2>
+    <dl class="faq-list">
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="知了支持哪些 RSS 格式？" data-en="Which RSS formats does 知了 support?">知了支持哪些 RSS 格式？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="支持标准 RSS 2.0、RSS 1.0 和 Atom 格式，可兼容绝大多数博客、新闻网站和播客平台。" data-en="Supports RSS 2.0, RSS 1.0, and Atom formats — compatible with almost all blogs, news sites, and podcast platforms.">支持标准 RSS 2.0、RSS 1.0 和 Atom 格式，可兼容绝大多数博客、新闻网站和播客平台。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="AI 摘要功能是否收费？" data-en="Is the AI summary feature paid?">AI 摘要功能是否收费？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="每月提供一定免费 AI 摘要额度，高频使用者可选购高级版以获得无限额度。" data-en="A monthly free AI summary quota is included. Heavy users can purchase the premium tier for unlimited summaries.">每月提供一定免费 AI 摘要额度，高频使用者可选购高级版以获得无限额度。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="能否从其他 RSS 阅读器导入订阅？" data-en="Can I import feeds from another RSS reader?">能否从其他 RSS 阅读器导入订阅？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="支持 OPML 格式导入导出，轻松从 Feedly、Inoreader 等平台迁移，无需重新添加订阅源。" data-en="Supports OPML import/export for easy migration from Feedly, Inoreader, and others — no need to re-add your feeds.">支持 OPML 格式导入导出，轻松从 Feedly、Inoreader 等平台迁移，无需重新添加订阅源。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="支持哪些平台？" data-en="Which platforms are supported?">支持哪些平台？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="知了支持 iOS 16+、iPadOS 16+ 和 macOS 13+，订阅源和阅读进度跨平台同步。" data-en="知了 supports iOS 16+, iPadOS 16+, and macOS 13+ with cross-platform sync for feeds and read progress.">知了支持 iOS 16+、iPadOS 16+ 和 macOS 13+，订阅源和阅读进度跨平台同步。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="离线阅读如何使用？" data-en="How does offline reading work?">离线阅读如何使用？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="知了在刷新时自动缓存文章全文，无需手动操作。在飞机或地铁等无网络环境下可正常阅读已缓存的内容。" data-en="知了 automatically caches full article text on refresh — no manual action needed. Read cached content anywhere, even without internet.">知了在刷新时自动缓存文章全文，无需手动操作。在飞机或地铁等无网络环境下可正常阅读已缓存的内容。</p>
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== CTA BANNER ===================== -->
+<section class="section-cta-banner" aria-labelledby="cta-heading">
+  <div class="container cta-banner-inner">
+    <h2 id="cta-heading" data-zh="找回深度阅读的乐趣" data-en="Rediscover the Joy of Deep Reading">找回深度阅读的乐趣</h2>
+    <p data-zh="免费下载知了，告别信息过载，让阅读重新有意义。" data-en="Download 知了 for free — beat information overload and make reading meaningful again.">
+      免费下载知了，告别信息过载，让阅读重新有意义。
+    </p>
+    <a href="https://apps.apple.com/us/app/%E7%9F%A5%E4%BA%86-rss%E6%99%BA%E8%83%BD%E8%81%9A%E5%90%88%E9%98%85%E8%AF%BB/id1525056652?uo=4"
+       class="btn btn-primary btn-large" target="_blank" rel="noopener"
+       aria-label="在 App Store 下载知了">
+      <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-sub">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/fitpretty.html" data-zh="FitPretty" data-en="FitPretty">FitPretty</a>
+      <a href="/articles/rss-reader-for-information-overload.html" data-zh="相关文章" data-en="Related Article">相关文章</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 邓羽浩. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 邓羽浩. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

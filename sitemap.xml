@@ -26,28 +26,28 @@
 
   <!-- App pages -->
   <url>
-    <loc>https://tooapp.com/apps/noteit/</loc>
+    <loc>https://tooapp.com/apps/noteit.html</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://tooapp.com/apps/rss-reader/</loc>
+    <loc>https://tooapp.com/apps/rss-reader.html</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://tooapp.com/apps/mahjong-ai/</loc>
+    <loc>https://tooapp.com/apps/mahjong-ai.html</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://tooapp.com/apps/fitpretty/</loc>
+    <loc>https://tooapp.com/apps/fitpretty.html</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -68,12 +68,33 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- Article / blog pages (placeholder for future content) -->
+  <!-- Article pages -->
   <url>
-    <loc>https://tooapp.com/articles/</loc>
-    <lastmod>2026-06-23</lastmod>
+    <loc>https://tooapp.com/articles/ai-journal-app-for-reflection.html</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://tooapp.com/articles/rss-reader-for-information-overload.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://tooapp.com/articles/mahjong-assistant-practice-guide.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://tooapp.com/articles/fitness-app-for-body-transformation.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

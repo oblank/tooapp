@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>FitPretty — 健身与美护一站式记录应用 | Fitness &amp; Beauty Tracker App</title>
+  <meta name="description" content="FitPretty 是一款一站式记录健身计划与日常美护的应用，帮助你保持自律、追踪进展、展现最好的自己。支持 iOS。| Track fitness routines and beauty care in one place — feel strong and look great.">
+  <meta name="author" content="Yuhao Deng · 邓羽浩">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/apps/fitpretty.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/apps/fitpretty.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/apps/fitpretty.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/apps/fitpretty.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tooapp.com/apps/fitpretty.html">
+  <meta property="og:title" content="FitPretty — 健身与美护一站式应用 | Fitness &amp; Beauty Tracker">
+  <meta property="og:description" content="一站式记录健身计划与日常美护，帮助你保持自律、展现最好的自己。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/og-fitpretty.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FitPretty — Fitness &amp; Beauty Tracker App">
+  <meta name="twitter:description" content="Track fitness routines and beauty care in one place — feel strong and look great.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/og-fitpretty.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#FF375F">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "FitPretty",
+    "description": "Track your fitness routines and beauty care in one place — feel strong and look great.",
+    "url": "https://tooapp.com/apps/fitpretty.html",
+    "downloadUrl": "https://apps.apple.com/us/app/fitpretty/id6654895919?uo=4",
+    "operatingSystem": "iOS 16+",
+    "applicationCategory": "HealthApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Yuhao Deng",
+      "alternateName": "邓羽浩",
+      "url": "https://tooapp.com/"
+    },
+    "screenshot": "https://tooapp.com/assets/img/fitpretty-screenshot.png"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ── App Page Specific ─── */
+    .app-hero {
+      padding-block: var(--sp-20);
+      background: linear-gradient(160deg, color-mix(in srgb, #FF375F 8%, var(--surface)) 0%, var(--surface) 100%);
+    }
+    .app-hero-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: var(--sp-8);
+    }
+    .app-hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+      box-shadow: var(--shadow-lg);
+      flex-shrink: 0;
+    }
+    .app-hero-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FF375F;
+      margin-bottom: var(--sp-2);
+    }
+    .app-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-4);
+    }
+    .app-hero-desc {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: 52ch;
+    }
+    .section-screenshots { background: var(--surface-raised); }
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .screenshot-frame {
+      aspect-ratio: 9/19.5;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .screenshot-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-2);
+      padding: var(--sp-4);
+      text-align: center;
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+    }
+    .screenshot-placeholder .icon { font-size: 2rem; }
+    .section-features { background: var(--surface); }
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .feature-item {
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      padding: var(--sp-4);
+      background: var(--surface-raised);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+    .feature-emoji { font-size: 1.5rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .feature-text h4 { font-size: var(--size-sm); font-weight: 700; margin-bottom: var(--sp-1); }
+    .feature-text p { font-size: var(--size-xs); color: var(--text-secondary); max-width: none; }
+    .section-usecases { background: var(--surface-raised); }
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--sp-6);
+      margin-top: var(--sp-8);
+    }
+    .usecase-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      border: 1px solid var(--border-subtle);
+    }
+    .usecase-icon { font-size: 2rem; margin-bottom: var(--sp-3); line-height: 1; }
+    .usecase-title { font-size: var(--size-base); font-weight: 700; margin-bottom: var(--sp-2); }
+    .usecase-desc { font-size: var(--size-sm); color: var(--text-secondary); max-width: none; }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 600px) {
+      .app-hero-inner { grid-template-columns: 1fr; }
+      .app-hero-icon { width: 88px; height: 88px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-sub">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/#why" data-zh="我们的优势" data-en="Why Us">我们的优势</a>
+      <a href="/#faq" data-zh="常见问题" data-en="FAQ">常见问题</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <a href="/#apps" data-zh="应用" data-en="Apps">应用</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page">FitPretty</span>
+  </nav>
+</div>
+
+<!-- ===================== APP HERO ===================== -->
+<section class="app-hero" aria-labelledby="app-hero-heading">
+  <div class="container app-hero-inner">
+    <div class="app-hero-icon app-icon--pink" role="img" aria-label="FitPretty app icon"></div>
+    <div>
+      <p class="app-hero-eyebrow" data-zh="健身 · 美护 · 自律记录" data-en="Fitness · Beauty · Self-discipline Tracking">健身 · 美护 · 自律记录</p>
+      <h1 id="app-hero-heading" class="app-hero-title">
+        <span data-zh="FitPretty — 强健身体，由内而外的美" data-en="FitPretty — Strong Body, Beauty Inside Out">FitPretty — 强健身体，由内而外的美</span>
+      </h1>
+      <p class="app-hero-desc" data-zh="一站式记录健身计划与日常美护，追踪训练进度、皮肤护理和身体变化，帮助你保持自律，每天都展现最好的自己。" data-en="Track fitness routines and beauty care in one place — log workout progress, skincare, and body changes to stay disciplined and look your best every day.">
+        一站式记录健身计划与日常美护，追踪训练进度、皮肤护理和身体变化，帮助你保持自律，每天都展现最好的自己。
+      </p>
+      <div class="cta-group">
+        <a href="https://apps.apple.com/us/app/fitpretty/id6654895919?uo=4"
+           class="btn btn-store btn-large" target="_blank" rel="noopener"
+           aria-label="在 App Store 下载 FitPretty">
+          <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+        </a>
+        <span style="font-size:var(--size-xs);color:var(--text-tertiary);" data-zh="iOS 16+" data-en="iOS 16+">iOS 16+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCREENSHOTS ===================== -->
+<section class="section-screenshots" aria-labelledby="screenshots-heading">
+  <div class="container">
+    <h2 id="screenshots-heading" class="section-title">
+      <span data-zh="应用截图" data-en="Screenshots">应用截图</span>
+    </h2>
+    <p class="section-sub" data-zh="简洁美观的界面，记录你的每一步蜕变" data-en="A clean, beautiful UI to record every step of your transformation.">简洁美观的界面，记录你的每一步蜕变</p>
+    <div class="screenshot-gallery" role="list">
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">🏋️</span>
+          <span data-zh="训练日志" data-en="Workout Log">训练日志</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">💆</span>
+          <span data-zh="美护记录" data-en="Beauty Log">美护记录</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">📊</span>
+          <span data-zh="进度图表" data-en="Progress Chart">进度图表</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">📅</span>
+          <span data-zh="打卡日历" data-en="Check-in Calendar">打卡日历</span>
+        </div>
+      </div>
+      <div class="screenshot-frame" role="listitem">
+        <div class="screenshot-placeholder">
+          <span class="icon">🎯</span>
+          <span data-zh="目标设定" data-en="Goal Setting">目标设定</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="section-features" aria-labelledby="features-heading">
+  <div class="container">
+    <h2 id="features-heading" class="section-title">
+      <span data-zh="核心功能" data-en="Key Features">核心功能</span>
+    </h2>
+    <p class="section-sub" data-zh="健身与美护，两手都要抓，两手都要硬" data-en="Fitness and beauty — both matter, both covered.">健身与美护，两手都要抓，两手都要硬</p>
+    <ul class="feature-list" role="list">
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🏋️</span>
+        <div class="feature-text">
+          <h4 data-zh="训练计划管理" data-en="Workout Plan Management">训练计划管理</h4>
+          <p data-zh="创建自定义训练计划，记录每组动作、重量和次数，科学安排训练节奏。" data-en="Create custom workout plans and log sets, weights, and reps — scientifically structure your training rhythm.">创建自定义训练计划，记录每组动作、重量和次数，科学安排训练节奏。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">✨</span>
+        <div class="feature-text">
+          <h4 data-zh="护肤日程追踪" data-en="Skincare Routine Tracker">护肤日程追踪</h4>
+          <p data-zh="记录每日护肤步骤与产品使用，追踪肌肤状态变化，找到最适合自己的护肤方案。" data-en="Log daily skincare steps and product usage, track skin condition changes, and find what works best for you.">记录每日护肤步骤与产品使用，追踪肌肤状态变化，找到最适合自己的护肤方案。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📏</span>
+        <div class="feature-text">
+          <h4 data-zh="身体数据记录" data-en="Body Metrics Tracking">身体数据记录</h4>
+          <p data-zh="记录体重、体脂率、三围等身体指标，用可视化图表见证你的身材变化。" data-en="Track weight, body fat percentage, measurements, and more — visualize your body transformation with charts.">记录体重、体脂率、三围等身体指标，用可视化图表见证你的身材变化。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📅</span>
+        <div class="feature-text">
+          <h4 data-zh="打卡日历" data-en="Check-in Calendar">打卡日历</h4>
+          <p data-zh="可视化连续打卡记录，坚持的力量一目了然，用习惯的力量改变自己。" data-en="Visual streak calendar makes consistency visible — harness the power of habit to transform yourself.">可视化连续打卡记录，坚持的力量一目了然，用习惯的力量改变自己。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🎯</span>
+        <div class="feature-text">
+          <h4 data-zh="目标设定与提醒" data-en="Goal Setting &amp; Reminders">目标设定与提醒</h4>
+          <p data-zh="设定健身与美护目标，智能提醒帮你按计划执行，不让惰性打败努力。" data-en="Set fitness and beauty goals with smart reminders — don't let laziness defeat your efforts.">设定健身与美护目标，智能提醒帮你按计划执行，不让惰性打败努力。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📸</span>
+        <div class="feature-text">
+          <h4 data-zh="体态对比照片" data-en="Body Progress Photos">体态对比照片</h4>
+          <p data-zh="定期拍摄体态照片，前后对比直观呈现蜕变效果，是最好的自我激励。" data-en="Take regular progress photos and compare before/after — the best visual motivation for your journey.">定期拍摄体态照片，前后对比直观呈现蜕变效果，是最好的自我激励。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">💧</span>
+        <div class="feature-text">
+          <h4 data-zh="饮水与营养记录" data-en="Hydration &amp; Nutrition Log">饮水与营养记录</h4>
+          <p data-zh="记录每日饮水量和饮食情况，健身与营养双管齐下，效果事半功倍。" data-en="Log daily water intake and nutrition — combine fitness with nutrition for doubled results.">记录每日饮水量和饮食情况，健身与营养双管齐下，效果事半功倍。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🌙</span>
+        <div class="feature-text">
+          <h4 data-zh="睡眠质量追踪" data-en="Sleep Quality Tracking">睡眠质量追踪</h4>
+          <p data-zh="记录睡眠时间与质量，因为充足的睡眠是健身恢复和美容养颜的基础。" data-en="Log sleep duration and quality — because adequate rest is the foundation of fitness recovery and natural beauty.">记录睡眠时间与质量，因为充足的睡眠是健身恢复和美容养颜的基础。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== USE CASES ===================== -->
+<section class="section-usecases" aria-labelledby="usecases-heading">
+  <div class="container">
+    <h2 id="usecases-heading" class="section-title">
+      <span data-zh="适合哪些人？" data-en="Who Is It For?">适合哪些人？</span>
+    </h2>
+    <p class="section-sub" data-zh="无论你的目标是减脂增肌还是精致护肤，FitPretty 都是你的最佳伙伴" data-en="Whether your goal is fat loss, muscle gain, or refined skincare — FitPretty is your best companion.">无论你的目标是减脂增肌还是精致护肤，FitPretty 都是你的最佳伙伴</p>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">💪</div>
+        <h3 class="usecase-title" data-zh="健身爱好者" data-en="Fitness Enthusiasts">健身爱好者</h3>
+        <p class="usecase-desc" data-zh="系统记录训练数据，追踪力量进步曲线，让每次努力都有据可查。" data-en="Systematically log training data and track strength progress — make every effort measurable.">系统记录训练数据，追踪力量进步曲线，让每次努力都有据可查。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">🌸</div>
+        <h3 class="usecase-title" data-zh="护肤达人" data-en="Skincare Enthusiasts">护肤达人</h3>
+        <p class="usecase-desc" data-zh="管理复杂的护肤程序，追踪产品效果，科学护肤告别盲目跟风。" data-en="Manage complex skincare routines, track product effectiveness, and take a scientific approach to skincare.">管理复杂的护肤程序，追踪产品效果，科学护肤告别盲目跟风。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">⚖️</div>
+        <h3 class="usecase-title" data-zh="体重管理者" data-en="Weight Managers">体重管理者</h3>
+        <p class="usecase-desc" data-zh="综合记录饮食、运动、体重数据，找到最适合自己身体的减脂增肌方案。" data-en="Comprehensively track diet, exercise, and weight to find the body composition strategy that works for you.">综合记录饮食、运动、体重数据，找到最适合自己身体的减脂增肌方案。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">✨</div>
+        <h3 class="usecase-title" data-zh="自我提升者" data-en="Self-improvement Seekers">自我提升者</h3>
+        <p class="usecase-desc" data-zh="将健身与美护融入日常习惯，用记录的力量驱动持续自律，成为更好的自己。" data-en="Integrate fitness and beauty into daily habits — use the power of tracking to fuel continuous self-discipline.">将健身与美护融入日常习惯，用记录的力量驱动持续自律，成为更好的自己。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="section-faq" aria-labelledby="faq-heading">
+  <div class="container faq-container">
+    <h2 id="faq-heading" class="section-title">
+      <span data-zh="常见问题" data-en="FAQ">常见问题</span>
+    </h2>
+    <dl class="faq-list">
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="FitPretty 是免费的吗？" data-en="Is FitPretty free?">FitPretty 是免费的吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="核心功能完全免费，包括训练日志、护肤记录和基础数据追踪。高级分析功能和主题皮肤为可选购买。" data-en="Core features are completely free, including workout logs, skincare records, and basic data tracking. Advanced analytics and themes are optional purchases.">核心功能完全免费，包括训练日志、护肤记录和基础数据追踪。高级分析功能和主题皮肤为可选购买。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="数据会同步到云端吗？" data-en="Is data synced to the cloud?">数据会同步到云端吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="数据默认保存在本地，可选开启 iCloud 同步在多台设备间共享数据。健康数据不会上传到第三方服务器。" data-en="Data is stored locally by default. Optional iCloud sync shares data across your devices. Health data is never uploaded to third-party servers.">数据默认保存在本地，可选开启 iCloud 同步在多台设备间共享数据。健康数据不会上传到第三方服务器。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="FitPretty 与 Apple 健康有集成吗？" data-en="Does FitPretty integrate with Apple Health?">FitPretty 与 Apple 健康有集成吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="支持与 Apple 健康（HealthKit）集成，自动同步步数、心率、睡眠等数据，打造更全面的健康视图。" data-en="Integrates with Apple Health (HealthKit) to automatically sync steps, heart rate, sleep, and more for a comprehensive health overview.">支持与 Apple 健康（HealthKit）集成，自动同步步数、心率、睡眠等数据，打造更全面的健康视图。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="支持 Apple Watch 吗？" data-en="Does it support Apple Watch?">支持 Apple Watch 吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="支持在 Apple Watch 上快速记录训练和饮水，手腕上的记录更方便快捷。" data-en="Supports quick workout and hydration logging on Apple Watch — recording from your wrist is faster and more convenient.">支持在 Apple Watch 上快速记录训练和饮水，手腕上的记录更方便快捷。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="内置有训练动作库吗？" data-en="Is there a built-in exercise library?">内置有训练动作库吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="内置数百种常见训练动作，附有动作说明和注意事项，同时支持添加自定义动作满足个性化需求。" data-en="Includes hundreds of common exercises with descriptions and tips, plus support for custom exercises to meet personalized needs.">内置数百种常见训练动作，附有动作说明和注意事项，同时支持添加自定义动作满足个性化需求。</p>
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== CTA BANNER ===================== -->
+<section class="section-cta-banner" aria-labelledby="cta-heading">
+  <div class="container cta-banner-inner">
+    <h2 id="cta-heading" data-zh="开始你的蜕变之旅" data-en="Start Your Transformation Journey">开始你的蜕变之旅</h2>
+    <p data-zh="免费下载 FitPretty，今天就迈出改变的第一步。" data-en="Download FitPretty for free and take the first step toward change today.">
+      免费下载 FitPretty，今天就迈出改变的第一步。
+    </p>
+    <a href="https://apps.apple.com/us/app/fitpretty/id6654895919?uo=4"
+       class="btn btn-primary btn-large" target="_blank" rel="noopener"
+       aria-label="在 App Store 下载 FitPretty">
+      <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-sub">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/fitpretty.html" data-zh="FitPretty" data-en="FitPretty">FitPretty</a>
+      <a href="/articles/fitness-app-for-body-transformation.html" data-zh="相关文章" data-en="Related Article">相关文章</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 邓羽浩. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 邓羽浩. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>

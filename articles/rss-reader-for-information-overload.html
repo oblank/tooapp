@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>RSS 阅读器如何帮你战胜信息过载 | How an RSS Reader Beats Information Overload</title>
+  <meta name="description" content="每天被海量推送淹没？本文介绍 RSS 聚合阅读与 AI 摘要如何帮你重拾信息主导权，推荐知了 RSS 智能阅读器。| Drowning in push notifications? Learn how RSS aggregation and AI summaries help you reclaim control over information. Try 知了 RSS Reader.">
+  <meta name="author" content="Yuhao Deng · 邓羽浩">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/articles/rss-reader-for-information-overload.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/articles/rss-reader-for-information-overload.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/articles/rss-reader-for-information-overload.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/articles/rss-reader-for-information-overload.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tooapp.com/articles/rss-reader-for-information-overload.html">
+  <meta property="og:title" content="RSS 阅读器如何帮你战胜信息过载 | How an RSS Reader Beats Information Overload">
+  <meta property="og:description" content="每天被海量推送淹没？RSS 聚合阅读与 AI 摘要帮你重拾信息主导权，从噪音中提取真正有价值的内容。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/og-rss-reader.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How an RSS Reader Beats Information Overload | 知了">
+  <meta name="twitter:description" content="Reclaim your reading with RSS aggregation and AI summaries. Stop being pushed — start choosing.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/og-rss-reader.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#5E5CE6">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "RSS 阅读器如何帮你战胜信息过载",
+    "description": "每天被海量推送淹没？本文介绍 RSS 聚合阅读与 AI 摘要如何帮你重拾信息主导权，推荐知了 RSS 智能阅读器。",
+    "url": "https://tooapp.com/articles/rss-reader-for-information-overload.html",
+    "datePublished": "2026-06-23",
+    "dateModified": "2026-06-23",
+    "author": {
+      "@type": "Person",
+      "name": "Yuhao Deng",
+      "alternateName": "邓羽浩",
+      "url": "https://tooapp.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Too Apps",
+      "url": "https://tooapp.com/"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ── Article Page Specific ─── */
+    .article-hero {
+      padding-block: var(--sp-16) var(--sp-12);
+      background: linear-gradient(160deg,
+        color-mix(in srgb, #5E5CE6 8%, var(--surface)) 0%,
+        var(--surface) 100%);
+    }
+    .article-hero-inner { max-width: 760px; }
+    .article-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #5E5CE6;
+      margin-bottom: var(--sp-4);
+    }
+    .article-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-6);
+    }
+    .article-hero-summary {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-8);
+      max-width: 58ch;
+    }
+    .article-meta {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-8);
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr min(680px, 100%) 1fr;
+      gap: var(--sp-8);
+      padding-block: var(--sp-16);
+    }
+    .article-layout > * { grid-column: 2; }
+    .prose h2 {
+      font-size: var(--size-xl);
+      margin-top: var(--sp-12);
+      margin-bottom: var(--sp-4);
+    }
+    .prose h3 {
+      font-size: var(--size-lg);
+      margin-top: var(--sp-8);
+      margin-bottom: var(--sp-3);
+    }
+    .prose p {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: none;
+    }
+    .prose ul, .prose ol {
+      margin-bottom: var(--sp-6);
+      padding-left: var(--sp-6);
+    }
+    .prose li {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-2);
+    }
+    .prose strong { color: var(--text-primary); }
+    .app-callout {
+      background: var(--surface-raised);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: var(--sp-6);
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      margin-block: var(--sp-8);
+    }
+    .app-callout-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+    .app-callout-body { flex: 1; }
+    .app-callout-name {
+      font-size: var(--size-lg);
+      font-weight: 700;
+      margin-bottom: var(--sp-1);
+    }
+    .app-callout-desc {
+      font-size: var(--size-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-4);
+      max-width: none;
+    }
+    .app-callout .cta-group { flex-wrap: wrap; }
+    .tip-box {
+      background: color-mix(in srgb, #5E5CE6 8%, var(--surface));
+      border-left: 4px solid #5E5CE6;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--sp-4) var(--sp-6);
+      margin-block: var(--sp-6);
+    }
+    .tip-box p { margin-bottom: 0; font-size: var(--size-sm); }
+    .tip-label {
+      font-size: var(--size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #5E5CE6;
+      margin-bottom: var(--sp-2);
+    }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 768px) {
+      .app-callout { flex-direction: column; }
+      .article-layout { grid-template-columns: 1fr; padding-inline: var(--sp-4); }
+      .article-layout > * { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-sub">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span data-zh="文章" data-en="Articles">文章</span>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page" data-zh="RSS 与信息过载" data-en="RSS & Information Overload">RSS 与信息过载</span>
+  </nav>
+</div>
+
+<!-- ===================== ARTICLE HERO ===================== -->
+<section class="article-hero" aria-labelledby="article-heading">
+  <div class="container article-hero-inner">
+    <p class="article-eyebrow" data-zh="阅读 · 效率 · 信息管理" data-en="Reading · Productivity · Information Management">阅读 · 效率 · 信息管理</p>
+    <h1 id="article-heading" class="article-hero-title">
+      <span data-zh="RSS 阅读器如何帮你战胜信息过载" data-en="How an RSS Reader Beats Information Overload">RSS 阅读器如何帮你战胜信息过载</span>
+    </h1>
+    <p class="article-hero-summary" data-zh="每天被微博、微信、抖音的算法推送淹没？RSS 阅读器让你从被动接收变为主动选择，配合 AI 摘要，每天只需 20 分钟就能完成高质量阅读。" data-en="Drowning in algorithmic feeds from social media? RSS lets you switch from passive consumption to intentional reading. Pair it with AI summaries and you need just 20 minutes a day for high-quality content.">
+      每天被微博、微信、抖音的算法推送淹没？RSS 阅读器让你从被动接收变为主动选择，配合 AI 摘要，每天只需 20 分钟就能完成高质量阅读。
+    </p>
+    <p class="article-meta" data-zh="作者：邓羽浩 · 2026年6月" data-en="By Yuhao Deng · June 2026">作者：邓羽浩 · 2026年6月</p>
+
+    <!-- Top CTA -->
+    <div class="app-callout">
+      <div class="app-callout-icon app-icon--indigo" role="img" aria-label="知了 app icon"></div>
+      <div class="app-callout-body">
+        <p class="app-callout-name">知了 RSS</p>
+        <p class="app-callout-desc" data-zh="RSS 智能聚合阅读器，AI 摘要帮你高效获取信息，告别算法噪音，iOS &amp; macOS 免费下载。" data-en="Smart RSS aggregator with AI summaries. Cut through algorithmic noise and read intentionally. Free on iOS &amp; macOS.">
+          RSS 智能聚合阅读器，AI 摘要帮你高效获取信息，告别算法噪音，iOS &amp; macOS 免费下载。
+        </p>
+        <div class="cta-group">
+          <a href="https://apps.apple.com/us/app/%E7%9F%A5%E4%BA%86-rss%E6%99%BA%E8%83%BD%E8%81%9A%E5%90%88%E9%98%85%E8%AF%BB/id1525056652?uo=4"
+             class="btn btn-store" target="_blank" rel="noopener"
+             aria-label="在 App Store 下载知了">
+            <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+          </a>
+          <a href="/apps/rss-reader.html" class="btn btn-card-detail" data-zh="查看详情" data-en="Learn More">查看详情</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARTICLE BODY ===================== -->
+<main>
+  <div class="article-layout">
+    <article class="prose">
+
+      <h2 data-zh="信息过载的本质：你不是在「读」，而是在「被读」" data-en="The Root of Information Overload: You're Not Reading — You're Being Read">信息过载的本质：你不是在「读」，而是在「被读」</h2>
+
+      <p data-zh="现代人每天接触的信息量，相当于 15 世纪一个普通人一生所接触到的全部信息。社交媒体算法的本质是最大化你的停留时长，而不是最大化你的信息获取质量。你越刷，平台越赚，而你的注意力和时间却在不知不觉中被消耗殆尽。" data-en="The average person today processes as much information in a single day as a 15th-century person might encounter in a lifetime. Social media algorithms are designed to maximize your time spent, not the quality of information you receive. The more you scroll, the more they earn — while your attention and time quietly slip away.">
+        现代人每天接触的信息量，相当于 15 世纪一个普通人一生所接触到的全部信息。社交媒体算法的本质是最大化你的停留时长，而不是最大化你的信息获取质量。你越刷，平台越赚，而你的注意力和时间却在不知不觉中被消耗殆尽。
+      </p>
+
+      <p data-zh="RSS（Really Simple Syndication）是信息过载问题的反面解法。它让你订阅你真正关心的来源，而不是被算法决定你看什么。你掌控内容，而不是内容掌控你。" data-en="RSS (Really Simple Syndication) is the antidote to information overload. It lets you subscribe to sources you genuinely care about, not what an algorithm decides you should see. You control the content — not the other way around.">
+        RSS（Really Simple Syndication）是信息过载问题的反面解法。它让你订阅你真正关心的来源，而不是被算法决定你看什么。你掌控内容，而不是内容掌控你。
+      </p>
+
+      <h2 data-zh="RSS 阅读器 + AI 摘要 = 信息效率的双重升级" data-en="RSS Reader + AI Summaries = Double Upgrade to Information Efficiency">RSS 阅读器 + AI 摘要 = 信息效率的双重升级</h2>
+
+      <h3 data-zh="RSS 解决「噪音问题」" data-en="RSS Solves the Noise Problem">RSS 解决「噪音问题」</h3>
+
+      <p data-zh="通过 RSS，你只订阅你信任的博客、新闻网站、播客和学术来源。没有广告推荐，没有「你可能感兴趣的」，没有算法注水内容。每一条出现在你阅读器里的内容，都是你主动选择的。" data-en="With RSS, you subscribe only to blogs, news sites, podcasts, and academic sources you trust. No sponsored recommendations, no 'you might like this,' no algorithmically boosted junk. Every item in your reader is something you actively chose.">
+        通过 RSS，你只订阅你信任的博客、新闻网站、播客和学术来源。没有广告推荐，没有「你可能感兴趣的」，没有算法注水内容。每一条出现在你阅读器里的内容，都是你主动选择的。
+      </p>
+
+      <h3 data-zh="AI 摘要解决「时间问题」" data-en="AI Summaries Solve the Time Problem">AI 摘要解决「时间问题」</h3>
+
+      <p data-zh="即便是优质内容，也未必每一篇都值得精读。AI 摘要功能能在 3 秒内为你总结一篇文章的核心观点，帮你快速决定「是否值得深读」。这样你就能把宝贵的专注力留给真正重要的内容。" data-en="Even quality content doesn't always warrant deep reading. AI summaries distill any article's core argument in 3 seconds, helping you quickly decide 'is this worth my full attention?' This reserves your focus for what truly matters.">
+        即便是优质内容，也未必每一篇都值得精读。AI 摘要功能能在 3 秒内为你总结一篇文章的核心观点，帮你快速决定「是否值得深读」。这样你就能把宝贵的专注力留给真正重要的内容。
+      </p>
+
+      <div class="tip-box">
+        <p class="tip-label" data-zh="实用建议" data-en="Practical Tip">实用建议</p>
+        <p data-zh="建议订阅数量控制在 20—30 个来源。过多订阅会重新造成信息过载；过少则失去多元视角。从你最信任的 5 个信息来源开始，逐步扩展。" data-en="Keep your subscriptions to 20–30 sources. Too many creates overload again; too few limits perspective. Start with your 5 most trusted sources and expand gradually.">
+          建议订阅数量控制在 20—30 个来源。过多订阅会重新造成信息过载；过少则失去多元视角。从你最信任的 5 个信息来源开始，逐步扩展。
+        </p>
+      </div>
+
+      <h2 data-zh="如何建立「每日 20 分钟精读」习惯" data-en="How to Build a '20 Minutes of Intentional Reading' Daily Habit">如何建立「每日 20 分钟精读」习惯</h2>
+
+      <p data-zh="高效阅读不是花更多时间，而是花更少时间在更有价值的内容上。以下是一套可执行的工作流：" data-en="Efficient reading isn't about spending more time — it's about spending less time on higher-value content. Here's an actionable workflow:">
+        高效阅读不是花更多时间，而是花更少时间在更有价值的内容上。以下是一套可执行的工作流：
+      </p>
+
+      <ol>
+        <li>
+          <strong data-zh="早晨 5 分钟：扫描标题" data-en="Morning — 5 min: Scan headlines">早晨 5 分钟：扫描标题</strong>
+          <span data-zh="打开阅读器，快速浏览所有新内容的标题，用 AI 摘要过滤，只标记 3—5 篇值得精读的文章。" data-en="Open your reader, scan all new headlines, use AI summaries to filter, and mark only 3–5 articles worth reading in full.">打开阅读器，快速浏览所有新内容的标题，用 AI 摘要过滤，只标记 3—5 篇值得精读的文章。</span>
+        </li>
+        <li>
+          <strong data-zh="午间或晚间 15 分钟：精读" data-en="Midday or evening — 15 min: Deep read">午间或晚间 15 分钟：精读</strong>
+          <span data-zh="专注阅读早晨标记的内容，遇到特别有价值的段落可以收藏。不被推送打断，完全由你决定节奏。" data-en="Focus on reading the articles you flagged. Bookmark standout passages. No interruptions — you set the pace entirely.">专注阅读早晨标记的内容，遇到特别有价值的段落可以收藏。不被推送打断，完全由你决定节奏。</span>
+        </li>
+        <li>
+          <strong data-zh="离线缓存：碎片时间不浪费" data-en="Offline cache: Use every spare moment">离线缓存：碎片时间不浪费</strong>
+          <span data-zh="优质的 RSS 阅读器支持离线缓存，地铁、飞机、没有 Wi-Fi 的环境下照样畅读。" data-en="A good RSS reader caches articles offline, so you can read on the subway, in flight, or anywhere without Wi-Fi.">优质的 RSS 阅读器支持离线缓存，地铁、飞机、没有 Wi-Fi 的环境下照样畅读。</span>
+        </li>
+      </ol>
+
+      <h2 data-zh="RSS 阅读器适合哪些人？" data-en="Who Benefits Most from an RSS Reader?">RSS 阅读器适合哪些人？</h2>
+
+      <ul>
+        <li data-zh="<strong>知识工作者：</strong>需要持续学习、保持行业洞察，但没时间刷社交媒体。" data-en="<strong>Knowledge workers:</strong> Need continuous learning and industry insights, but can't afford to scroll social media."><strong data-zh="知识工作者：" data-en="Knowledge workers:">知识工作者：</strong><span data-zh="需要持续学习、保持行业洞察，但没时间刷社交媒体。" data-en="Need continuous learning and industry insights, but can't afford to scroll social media.">需要持续学习、保持行业洞察，但没时间刷社交媒体。</span></li>
+        <li data-zh="<strong>内容创作者：</strong>订阅优质博客与媒体，持续获取创作灵感与素材。" data-en="<strong>Content creators:</strong> Subscribe to top blogs and media to keep a steady stream of creative inspiration."><strong data-zh="内容创作者：" data-en="Content creators:">内容创作者：</strong><span data-zh="订阅优质博客与媒体，持续获取创作灵感与素材。" data-en="Subscribe to top blogs and media to keep a steady stream of creative inspiration.">订阅优质博客与媒体，持续获取创作灵感与素材。</span></li>
+        <li data-zh="<strong>学生与研究者：</strong>追踪学术动态、订阅专业期刊 RSS，第一时间掌握最新研究。" data-en="<strong>Students and researchers:</strong> Track academic news and subscribe to journal feeds to stay current with the latest research."><strong data-zh="学生与研究者：" data-en="Students and researchers:">学生与研究者：</strong><span data-zh="追踪学术动态、订阅专业期刊 RSS，第一时间掌握最新研究。" data-en="Track academic news and subscribe to journal feeds to stay current with the latest research.">追踪学术动态、订阅专业期刊 RSS，第一时间掌握最新研究。</span></li>
+        <li data-zh="<strong>想减少屏幕时间的人：</strong>用有价值的阅读替代无意义的刷视频时间。" data-en="<strong>Those reducing screen time:</strong> Replace mindless video scrolling with intentional, high-value reading."><strong data-zh="想减少屏幕时间的人：" data-en="Those reducing screen time:">想减少屏幕时间的人：</strong><span data-zh="用有价值的阅读替代无意义的刷视频时间。" data-en="Replace mindless video scrolling with intentional, high-value reading.">用有价值的阅读替代无意义的刷视频时间。</span></li>
+      </ul>
+
+      <h2 data-zh="推荐：知了 — 最聪明的 RSS 阅读器" data-en="Recommendation: 知了 — The Smartest RSS Reader">推荐：知了 — 最聪明的 RSS 阅读器</h2>
+
+      <p data-zh="<a href='/apps/rss-reader.html'>知了</a> 是一款专为高效阅读设计的 RSS 智能聚合阅读器，支持 iOS 16+ 和 macOS 13+。它将 RSS 订阅与 AI 摘要紧密结合，让每一次阅读都更有价值。" data-en="<a href='/apps/rss-reader.html'>知了</a> is a smart RSS aggregation reader designed for efficient reading, available on iOS 16+ and macOS 13+. It tightly integrates RSS subscriptions with AI summaries, making every reading session more valuable.">
+        <a href="/apps/rss-reader.html">知了</a> 是一款专为高效阅读设计的 RSS 智能聚合阅读器，支持 iOS 16+ 和 macOS 13+。它将 RSS 订阅与 AI 摘要紧密结合，让每一次阅读都更有价值。
+      </p>
+
+      <ul>
+        <li data-zh="<strong>AI 一键摘要：</strong>3 秒了解任何文章核心，快速判断是否值得精读。" data-en="<strong>One-tap AI summary:</strong> Understand any article's core argument in 3 seconds to quickly decide if it's worth deep reading."><strong data-zh="AI 一键摘要：" data-en="One-tap AI summary:">AI 一键摘要：</strong><span data-zh="3 秒了解任何文章核心，快速判断是否值得精读。" data-en="Understand any article's core argument in 3 seconds to quickly decide if it's worth deep reading.">3 秒了解任何文章核心，快速判断是否值得精读。</span></li>
+        <li data-zh="<strong>离线缓存：</strong>自动缓存文章，地铁和飞机上照常阅读，无需网络。" data-en="<strong>Offline cache:</strong> Auto-caches articles for uninterrupted reading on the subway or in-flight."><strong data-zh="离线缓存：" data-en="Offline cache:">离线缓存：</strong><span data-zh="自动缓存文章，地铁和飞机上照常阅读，无需网络。" data-en="Auto-caches articles for uninterrupted reading on the subway or in-flight.">自动缓存文章，地铁和飞机上照常阅读，无需网络。</span></li>
+        <li data-zh="<strong>全文搜索：</strong>快速找到任何你读过的文章和收藏，内容不再遗失。" data-en="<strong>Full-text search:</strong> Instantly find any article you've read or bookmarked — nothing gets lost."><strong data-zh="全文搜索：" data-en="Full-text search:">全文搜索：</strong><span data-zh="快速找到任何你读过的文章和收藏，内容不再遗失。" data-en="Instantly find any article you've read or bookmarked — nothing gets lost.">快速找到任何你读过的文章和收藏，内容不再遗失。</span></li>
+        <li data-zh="<strong>阅读进度同步：</strong>iPhone、iPad、Mac 之间无缝接力，随时随地继续阅读。" data-en="<strong>Reading sync:</strong> Seamlessly continue reading across iPhone, iPad, and Mac — pick up exactly where you left off."><strong data-zh="阅读进度同步：" data-en="Reading sync:">阅读进度同步：</strong><span data-zh="iPhone、iPad、Mac 之间无缝接力，随时随地继续阅读。" data-en="Seamlessly continue reading across iPhone, iPad, and Mac — pick up exactly where you left off.">iPhone、iPad、Mac 之间无缝接力，随时随地继续阅读。</span></li>
+      </ul>
+
+      <!-- Bottom CTA callout -->
+      <div class="app-callout" style="margin-top: var(--sp-12);">
+        <div class="app-callout-icon app-icon--indigo" role="img" aria-label="知了 app icon"></div>
+        <div class="app-callout-body">
+          <p class="app-callout-name">知了 RSS</p>
+          <p class="app-callout-desc" data-zh="从今天开始，用知了取代算法推送，每天 20 分钟，读真正有价值的内容。" data-en="Start today — replace your algorithmic feed with 知了. Just 20 minutes a day for content that truly matters.">
+            从今天开始，用知了取代算法推送，每天 20 分钟，读真正有价值的内容。
+          </p>
+          <div class="cta-group">
+            <a href="https://apps.apple.com/us/app/%E7%9F%A5%E4%BA%86-rss%E6%99%BA%E8%83%BD%E8%81%9A%E5%90%88%E9%98%85%E8%AF%BB/id1525056652?uo=4"
+               class="btn btn-store" target="_blank" rel="noopener"
+               aria-label="在 App Store 下载知了">
+              <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+            </a>
+            <a href="/apps/rss-reader.html" class="btn btn-card-detail" data-zh="查看知了详情" data-en="View 知了 Details">查看知了详情</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 data-zh="结语" data-en="Final Thoughts">结语</h2>
+
+      <p data-zh="信息时代的核心竞争力不是获取更多信息，而是筛选出更有价值的信息。RSS + AI 摘要是目前最高效的信息管理组合。<a href='/apps/rss-reader.html'>知了</a>正是为此而生的工具。今天就开始掌控你的信息来源，而不是被算法掌控。" data-en="In the information age, the key skill isn't consuming more — it's filtering better. RSS + AI summaries is the most efficient information management combination available today. <a href='/apps/rss-reader.html'>知了</a> is built precisely for this. Start controlling your information sources today — before the algorithms control you.">
+        信息时代的核心竞争力不是获取更多信息，而是筛选出更有价值的信息。RSS + AI 摘要是目前最高效的信息管理组合。<a href="/apps/rss-reader.html">知了</a>正是为此而生的工具。今天就开始掌控你的信息来源，而不是被算法掌控。
+      </p>
+
+    </article>
+  </div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-sub">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/" data-zh="首页" data-en="Home">首页</a>
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/fitpretty.html" data-zh="FitPretty" data-en="FitPretty">FitPretty</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 邓羽浩. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 邓羽浩. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>
