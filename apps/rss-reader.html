@@ -81,6 +81,8 @@
       border-radius: 26px;
       box-shadow: var(--shadow-lg);
       flex-shrink: 0;
+      object-fit: cover;
+      display: block;
     }
     .app-hero-eyebrow {
       font-size: var(--size-sm);
@@ -117,6 +119,12 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+    }
+    .screenshot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .screenshot-placeholder {
       width: 100%;
@@ -220,7 +228,7 @@
 <!-- ===================== APP HERO ===================== -->
 <section class="app-hero" aria-labelledby="app-hero-heading">
   <div class="container app-hero-inner">
-    <div class="app-hero-icon app-icon--indigo" role="img" aria-label="知了 app icon"></div>
+    <img class="app-hero-icon" src="/assets/img/apps/rss-reader/icon.jpg" alt="知了 app icon" loading="lazy">
     <div>
       <p class="app-hero-eyebrow" data-zh="RSS · 智能阅读 · 信息聚合" data-en="RSS · Smart Reading · Content Aggregation">RSS · 智能阅读 · 信息聚合</p>
       <h1 id="app-hero-heading" class="app-hero-title">
@@ -250,36 +258,11 @@
     </h2>
     <p class="section-sub" data-zh="清晰专注的阅读界面，让内容成为主角" data-en="A clean, focused reading interface that puts content front and center.">清晰专注的阅读界面，让内容成为主角</p>
     <div class="screenshot-gallery" role="list">
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📰</span>
-          <span data-zh="订阅列表" data-en="Feed List">订阅列表</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📖</span>
-          <span data-zh="文章阅读" data-en="Article Reader">文章阅读</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🤖</span>
-          <span data-zh="AI 摘要" data-en="AI Summary">AI 摘要</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">⭐</span>
-          <span data-zh="收藏夹" data-en="Favorites">收藏夹</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🔔</span>
-          <span data-zh="推送通知" data-en="Notifications">推送通知</span>
-        </div>
-      </div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/rss-reader/screenshot-1.png" alt="RSS Reader screenshot 1" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/rss-reader/screenshot-2.png" alt="RSS Reader screenshot 2" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/rss-reader/screenshot-3.png" alt="RSS Reader screenshot 3" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/rss-reader/screenshot-4.png" alt="RSS Reader screenshot 4" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/rss-reader/screenshot-5.png" alt="RSS Reader screenshot 5" loading="lazy"></div>
     </div>
   </div>
 </section>

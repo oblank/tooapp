@@ -81,6 +81,8 @@
       border-radius: 26px;
       box-shadow: var(--shadow-lg);
       flex-shrink: 0;
+      object-fit: cover;
+      display: block;
     }
     .app-hero-eyebrow {
       font-size: var(--size-sm);
@@ -117,6 +119,12 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+    }
+    .screenshot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .screenshot-placeholder {
       width: 100%;
@@ -220,7 +228,7 @@
 <!-- ===================== APP HERO ===================== -->
 <section class="app-hero" aria-labelledby="app-hero-heading">
   <div class="container app-hero-inner">
-    <div class="app-hero-icon app-icon--orange" role="img" aria-label="Mahjong AI app icon"></div>
+    <img class="app-hero-icon" src="/assets/img/apps/mahjong-ai/icon.jpg" alt="Mahjong AI app icon" loading="lazy">
     <div>
       <p class="app-hero-eyebrow" data-zh="麻将 · AI 助手 · 策略分析" data-en="Mahjong · AI Assistant · Strategy Analysis">麻将 · AI 助手 · 策略分析</p>
       <h1 id="app-hero-heading" class="app-hero-title">
@@ -250,36 +258,11 @@
     </h2>
     <p class="section-sub" data-zh="直观的牌面分析界面，让策略一目了然" data-en="Intuitive tile analysis UI — strategy at a glance.">直观的牌面分析界面，让策略一目了然</p>
     <div class="screenshot-gallery" role="list">
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🀄</span>
-          <span data-zh="手牌输入" data-en="Hand Input">手牌输入</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🧠</span>
-          <span data-zh="AI 分析" data-en="AI Analysis">AI 分析</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📊</span>
-          <span data-zh="胡牌概率" data-en="Win Probability">胡牌概率</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📚</span>
-          <span data-zh="牌型教学" data-en="Hand Guide">牌型教学</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📈</span>
-          <span data-zh="对局复盘" data-en="Game Review">对局复盘</span>
-        </div>
-      </div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/mahjong-ai/screenshot-1.jpg" alt="Mahjong AI screenshot 1" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/mahjong-ai/screenshot-2.jpg" alt="Mahjong AI screenshot 2" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/mahjong-ai/screenshot-3.jpg" alt="Mahjong AI screenshot 3" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/mahjong-ai/screenshot-4.jpg" alt="Mahjong AI screenshot 4" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/mahjong-ai/screenshot-5.jpg" alt="Mahjong AI screenshot 5" loading="lazy"></div>
     </div>
   </div>
 </section>

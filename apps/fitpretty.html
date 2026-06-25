@@ -80,6 +80,8 @@
       border-radius: 26px;
       box-shadow: var(--shadow-lg);
       flex-shrink: 0;
+      object-fit: cover;
+      display: block;
     }
     .app-hero-eyebrow {
       font-size: var(--size-sm);
@@ -116,6 +118,12 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+    }
+    .screenshot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .screenshot-placeholder {
       width: 100%;
@@ -219,7 +227,7 @@
 <!-- ===================== APP HERO ===================== -->
 <section class="app-hero" aria-labelledby="app-hero-heading">
   <div class="container app-hero-inner">
-    <div class="app-hero-icon app-icon--pink" role="img" aria-label="FitPretty app icon"></div>
+    <img class="app-hero-icon" src="/assets/img/apps/fitpretty/icon.jpg" alt="FitPretty app icon" loading="lazy">
     <div>
       <p class="app-hero-eyebrow" data-zh="健身 · 美护 · 自律记录" data-en="Fitness · Beauty · Self-discipline Tracking">健身 · 美护 · 自律记录</p>
       <h1 id="app-hero-heading" class="app-hero-title">
@@ -249,36 +257,11 @@
     </h2>
     <p class="section-sub" data-zh="简洁美观的界面，记录你的每一步蜕变" data-en="A clean, beautiful UI to record every step of your transformation.">简洁美观的界面，记录你的每一步蜕变</p>
     <div class="screenshot-gallery" role="list">
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🏋️</span>
-          <span data-zh="训练日志" data-en="Workout Log">训练日志</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">💆</span>
-          <span data-zh="美护记录" data-en="Beauty Log">美护记录</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📊</span>
-          <span data-zh="进度图表" data-en="Progress Chart">进度图表</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📅</span>
-          <span data-zh="打卡日历" data-en="Check-in Calendar">打卡日历</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🎯</span>
-          <span data-zh="目标设定" data-en="Goal Setting">目标设定</span>
-        </div>
-      </div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/fitpretty/screenshot-1.jpg" alt="FitPretty screenshot 1" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/fitpretty/screenshot-2.jpg" alt="FitPretty screenshot 2" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/fitpretty/screenshot-3.jpg" alt="FitPretty screenshot 3" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/fitpretty/screenshot-1.jpg" alt="FitPretty screenshot 4" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/fitpretty/screenshot-2.jpg" alt="FitPretty screenshot 5" loading="lazy"></div>
     </div>
   </div>
 </section>

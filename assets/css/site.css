@@ -351,12 +351,26 @@ section { padding-block: var(--sp-20); }
   box-shadow: var(--shadow-md);
 }
 
+.app-icon-grid .app-icon[src] {
+  object-fit: cover;
+  display: block;
+  overflow: hidden;
+}
+
 .app-card-icon {
   width: 64px;
   height: 64px;
   border-radius: 14px;
   box-shadow: var(--shadow-sm);
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.app-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .app-icon--teal   { background: linear-gradient(135deg, #30D158, #34C759); }

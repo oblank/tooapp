@@ -81,6 +81,8 @@
       border-radius: 26px;
       box-shadow: var(--shadow-lg);
       flex-shrink: 0;
+      object-fit: cover;
+      display: block;
     }
     .app-hero-eyebrow {
       font-size: var(--size-sm);
@@ -117,6 +119,12 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+    }
+    .screenshot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .screenshot-placeholder {
       width: 100%;
@@ -228,7 +236,7 @@
 <!-- ===================== APP HERO ===================== -->
 <section class="app-hero" aria-labelledby="app-hero-heading">
   <div class="container app-hero-inner">
-    <div class="app-hero-icon app-icon--teal" role="img" aria-label="Noteit app icon"></div>
+    <img class="app-hero-icon" src="/assets/img/apps/noteit/icon.jpg" alt="Noteit app icon" loading="lazy">
     <div>
       <p class="app-hero-eyebrow" data-zh="AI 日记 · 笔记 · 效率" data-en="AI Journal · Notes · Productivity">AI 日记 · 笔记 · 效率</p>
       <h1 id="app-hero-heading" class="app-hero-title">
@@ -258,36 +266,11 @@
     </h2>
     <p class="section-sub" data-zh="简洁优雅的界面，专注于写作体验" data-en="Clean, elegant interface focused on the writing experience.">简洁优雅的界面，专注于写作体验</p>
     <div class="screenshot-gallery" role="list">
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">📖</span>
-          <span data-zh="日记首页" data-en="Journal Home">日记首页</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">✏️</span>
-          <span data-zh="新建日记" data-en="New Entry">新建日记</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🤖</span>
-          <span data-zh="AI 摘要" data-en="AI Summary">AI 摘要</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🗂️</span>
-          <span data-zh="回忆时间轴" data-en="Memory Timeline">回忆时间轴</span>
-        </div>
-      </div>
-      <div class="screenshot-frame" role="listitem">
-        <div class="screenshot-placeholder">
-          <span class="icon">🔍</span>
-          <span data-zh="全文搜索" data-en="Full-text Search">全文搜索</span>
-        </div>
-      </div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/noteit/screenshot-1.png" alt="Noteit screenshot 1" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/noteit/screenshot-2.png" alt="Noteit screenshot 2" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/noteit/screenshot-3.png" alt="Noteit screenshot 3" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/noteit/screenshot-4.png" alt="Noteit screenshot 4" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/noteit/screenshot-5.png" alt="Noteit screenshot 5" loading="lazy"></div>
     </div>
   </div>
 </section>
