@@ -343,6 +343,16 @@ section { padding-block: var(--sp-20); }
   gap: var(--sp-4);
 }
 
+.app-icon-link {
+  display: block;
+  border-radius: 18px;
+}
+
+.app-icon-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 /* ── App Icons (reusable color swatches) ────────────────────── */
 .app-icon {
   width: 80px;
