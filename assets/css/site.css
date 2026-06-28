@@ -474,6 +474,7 @@ section { padding-block: var(--sp-20); }
   border: 1px solid var(--border-subtle);
   transition: box-shadow var(--dur-mid) var(--ease-out),
               transform var(--dur-mid) var(--ease-out);
+  cursor: pointer;
 }
 
 .app-card:hover {
@@ -508,6 +509,11 @@ section { padding-block: var(--sp-20); }
 }
 
 .app-card .btn { align-self: flex-start; }
+
+.app-card:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
 
 /* ── WHY SECTION ────────────────────────────────────────────── */
 .section-why { background: var(--surface); }

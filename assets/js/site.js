@@ -61,4 +61,22 @@
     });
   });
 
+  /* ── Clickable App Cards ─────────────────────────────────── */
+  document.querySelectorAll('.app-card[data-detail-href]').forEach(function (card) {
+    const detailHref = card.getAttribute('data-detail-href');
+    if (!detailHref) return;
+
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      window.location.href = detailHref;
+    });
+
+    card.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      if (e.target.closest('a, button')) return;
+      e.preventDefault();
+      window.location.href = detailHref;
+    });
+  });
+
 }());
