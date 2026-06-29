@@ -307,7 +307,15 @@ section { padding-block: var(--sp-20); }
 .app-card-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--sp-3);
+}
+
+.app-card-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
 }
 
 .qr-download {
