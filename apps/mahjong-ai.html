@@ -193,6 +193,59 @@
     .breadcrumb a { color: var(--text-secondary); }
     .breadcrumb a:hover { color: var(--blue); }
     .breadcrumb-sep { color: var(--text-tertiary); }
+    .section-tutorial { background: var(--surface); }
+    .tutorial-part {
+      font-size: var(--size-lg);
+      font-weight: 700;
+      margin-top: var(--sp-10);
+      margin-bottom: var(--sp-2);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .tutorial-part::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: #FF9F0A;
+      border-radius: 2px;
+    }
+    .tutorial-part:first-of-type { margin-top: var(--sp-8); }
+    .tutorial-part-sub {
+      font-size: var(--size-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: 60ch;
+    }
+    .tutorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-4);
+    }
+    .tutorial-card {
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      padding: var(--sp-5);
+      background: var(--surface-raised);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+    .tutorial-card .emoji { font-size: 1.5rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .tutorial-card h4 { font-size: var(--size-sm); font-weight: 700; margin-bottom: var(--sp-1); }
+    .tutorial-card p { font-size: var(--size-xs); color: var(--text-secondary); max-width: none; }
+    .tutorial-card .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      color: #FF9F0A;
+      background: color-mix(in srgb, #FF9F0A 12%, var(--surface));
+      padding: 1px 8px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--sp-2);
+    }
     @media (max-width: 600px) {
       .app-hero-inner { grid-template-columns: 1fr; }
       .app-hero-icon { width: 88px; height: 88px; border-radius: 20px; }
@@ -375,6 +428,140 @@
         <h3 class="usecase-title" data-zh="麻将爱好者" data-en="Mahjong Enthusiasts">麻将爱好者</h3>
         <p class="usecase-desc" data-zh="深度研究各种规则下的最优策略，探索麻将这一古老游戏的无限可能。" data-en="Deeply study optimal strategies across rule sets and explore the endless possibilities of this ancient game.">深度研究各种规则下的最优策略，探索麻将这一古老游戏的无限可能。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TUTORIAL ===================== -->
+<section class="section-tutorial" aria-labelledby="tutorial-heading">
+  <div class="container">
+    <h2 id="tutorial-heading" class="section-title">
+      <span data-zh="麻将入门教学" data-en="Mahjong Beginner Guide">麻将入门教学</span>
+    </h2>
+    <p class="section-sub" data-zh="从基本牌型到各地打法，系统化学习麻将，配合 Mahjong AI 边学边练" data-en="From basic tiles to regional rule sets — learn mahjong systematically, practice with Mahjong AI.">从基本牌型到各地打法，系统化学习麻将，配合 Mahjong AI 边学边练</p>
+
+    <h3 class="tutorial-part">
+      <span data-zh="第一部分 · 基础入门" data-en="Part 1 · The Basics">第一部分 · 基础入门</span>
+    </h3>
+    <p class="tutorial-part-sub" data-zh="先搞懂牌、组合与胡牌条件，再复杂的规则也能轻松上手。" data-en="Understand the tiles, combinations, and winning conditions first — every rule set becomes much easier.">先搞懂牌、组合与胡牌条件，再复杂的规则也能轻松上手。</p>
+    <div class="tutorial-grid">
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🀄</span>
+        <div>
+          <span class="tag" data-zh="基本牌型" data-en="Tile Types">基本牌型</span>
+          <h4 data-zh="认识 144 张牌" data-en="Know the 144 Tiles">认识 144 张牌</h4>
+          <p data-zh="麻将由万、条、筒三套序数牌（各 36 张），加上东南西北中发白等字牌，以及春夏秋冬梅兰竹菊等花牌组成。先记住三类序数牌的排列，是入门的第一步。" data-en="Mahjong consists of three suits of numbered tiles (characters, bamboos, dots — 36 each), honor tiles (winds and dragons), and bonus flower tiles. Memorizing the three numbered suits is step one.">麻将由万、条、筒三套序数牌（各 36 张），加上东南西北中发白等字牌，以及春夏秋冬梅兰竹菊等花牌组成。先记住三类序数牌的排列，是入门的第一步。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🥢</span>
+        <div>
+          <span class="tag" data-zh="对子 · 刻子 · 顺子" data-en="Pairs · Pungs · Chows">对子 · 刻子 · 顺子</span>
+          <h4 data-zh="基本组合单位" data-en="Basic Combinations">基本组合单位</h4>
+          <p data-zh="两张相同的牌叫对子，三张相同叫刻子，三张同花色连续数字叫顺子。胡牌通常由 4 组顺子/刻子加 1 个对子（将头）组成，理解这点就抓住了麻将的核心结构。" data-en="Two identical tiles form a pair, three identical a pung, three consecutive same-suit tiles a chow. A winning hand is typically 4 chows/pungs plus 1 pair — grasp this and you have mahjong's core structure.">两张相同的牌叫对子，三张相同叫刻子，三张同花色连续数字叫顺子。胡牌通常由 4 组顺子/刻子加 1 个对子（将头）组成，理解这点就抓住了麻将的核心结构。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🎯</span>
+        <div>
+          <span class="tag" data-zh="听牌" data-en="Tenpai">听牌</span>
+          <h4 data-zh="听牌与听牌形态" data-en="Tenpai & Wait Patterns">听牌与听牌形态</h4>
+          <p data-zh="只差一张就能胡牌的状态叫听牌。常见的听牌形态有单钓（只听一张做将头）、边张、嵌张、两面听、多面听等。学会辨认听牌形态，才能判断自己该等什么牌、该打什么牌。" data-en="Being one tile away from winning is called tenpai. Common waits include single wait, edge wait, closed wait, two-sided wait, and multi-wait. Recognizing wait patterns tells you what to keep and what to discard.">只差一张就能胡牌的状态叫听牌。常见的听牌形态有单钓（只听一张做将头）、边张、嵌张、两面听、多面听等。学会辨认听牌形态，才能判断自己该等什么牌、该打什么牌。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🛡️</span>
+        <div>
+          <span class="tag" data-zh="杠" data-en="Kong">杠</span>
+          <h4 data-zh="明杠 · 暗杠 · 加杠" data-en="Open · Concealed · Added Kong">明杠 · 暗杠 · 加杠</h4>
+          <p data-zh="杠是四张相同牌的组合。自己手里四张叫暗杠；碰出的刻子再补第四张叫加杠；别人打出的一张配手里三张叫明杠。杠后从牌墙末尾补摸一张，是重要的进张与翻倍手段。" data-en="A kong is four identical tiles. Four in hand is a concealed kong; adding a fourth to an existing pung is an added kong; claiming another player's tile to complete four is an open kong. After a kong you draw a replacement tile — a key way to advance and multiply score.">杠是四张相同牌的组合。自己手里四张叫暗杠；碰出的刻子再补第四张叫加杠；别人打出的一张配手里三张叫明杠。杠后从牌墙末尾补摸一张，是重要的进张与翻倍手段。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🎉</span>
+        <div>
+          <span class="tag" data-zh="胡牌" data-en="Winning">胡牌</span>
+          <h4 data-zh="胡牌方式与基本番型" data-en="Ways to Win & Basic Scoring">胡牌方式与基本番型</h4>
+          <p data-zh="胡牌有两种：自己摸到叫自摸，别人打出让你胡叫点炮。基础胡牌为 4 组+1 对，特殊牌型如七对子、十三幺等也可胡。不同规则下番型与计分差别很大，先掌握通用胡牌结构，再学各地番型。" data-en="You can win by self-draw or by another player's discard. A standard hand is 4 groups + 1 pair; special hands like seven pairs or thirteen orphans also win. Scoring varies a lot by rule set — learn the universal structure first, then regional scoring.">胡牌有两种：自己摸到叫自摸，别人打出让你胡叫点炮。基础胡牌为 4 组+1 对，特殊牌型如七对子、十三幺等也可胡。不同规则下番型与计分差别很大，先掌握通用胡牌结构，再学各地番型。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🧭</span>
+        <div>
+          <span class="tag" data-zh="吃 · 碰 · 杠" data-en="Chow · Pung · Kong">吃 · 碰 · 杠</span>
+          <h4 data-zh="副露与门前清" data-en="Melds & Closed Hand">副露与门前清</h4>
+          <p data-zh="吃（上家打出的牌凑顺子）、碰（任意家打出凑刻子）、杠都属于副露。不进行任何副露、全部自己摸牌的状态叫门前清（闭门），通常翻倍且能做出更多高番牌型，是进阶策略的关键概念。" data-en="Chow (using previous player's tile for a sequence), pung (any player's tile for a triplet), and kong are all melds. Playing with no melds is a closed hand — usually scores more and enables bigger hands, a key concept for advanced strategy.">吃（上家打出的牌凑顺子）、碰（任意家打出凑刻子）、杠都属于副露。不进行任何副露、全部自己摸牌的状态叫门前清（闭门），通常翻倍且能做出更多高番牌型，是进阶策略的关键概念。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="tutorial-part">
+      <span data-zh="第二部分 · 各地打法" data-en="Part 2 · Regional Rule Sets">第二部分 · 各地打法</span>
+    </h3>
+    <p class="tutorial-part-sub" data-zh="掌握基础后，选择一种主流规则深入练习，再横向扩展。Mahjong AI 支持多种规则的实时分析。" data-en="After mastering the basics, dive into one mainstream rule set, then branch out. Mahjong AI supports real-time analysis across multiple rule sets.">掌握基础后，选择一种主流规则深入练习，再横向扩展。Mahjong AI 支持多种规则的实时分析。</p>
+    <div class="tutorial-grid">
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🌶️</span>
+        <div>
+          <span class="tag" data-zh="四川 · 血战到底" data-en="Sichuan · Blood Battle">四川 · 血战到底</span>
+          <h4 data-zh="四川三缺一 + 血战到底" data-en="Sichuan 3-Player & Blood Battle">四川三缺一 + 血战到底</h4>
+          <p data-zh="四川麻将去掉字牌与花牌，只用万条筒，必须缺一门才能胡。血战到底规则下一家胡牌后游戏继续，直到牌摸完，最终结算胡数最多者胜。节奏快、对抗激烈，最适合新手入门实战。" data-en="Sichuan mahjong drops honors and flowers, using only the three suits, and requires missing one suit to win. In Blood Battle, the game continues after each win until tiles run out — most wins takes it. Fast-paced and fierce, great for beginners to practice.">四川麻将去掉字牌与花牌，只用万条筒，必须缺一门才能胡。血战到底规则下一家胡牌后游戏继续，直到牌摸完，最终结算胡数最多者胜。节奏快、对抗激烈，最适合新手入门实战。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🏛️</span>
+        <div>
+          <span class="tag" data-zh="国标麻将" data-en="National Standard">国标麻将</span>
+          <h4 data-zh="国标麻将（竞赛规则）" data-en="National Standard (Competitive)">国标麻将（竞赛规则）</h4>
+          <p data-zh="国标麻将是国家体育总局制定的竞赛规则，共 81 种番型，8 番起胡。体系严谨、番型丰富，从平和、自摸到清一色、九莲宝灯层层递进。是系统学习麻将番型的最佳框架，也是正式比赛的标准。" data-en="The National Standard is the official competitive rule set, with 81 scoring patterns and an 8-fan minimum to win. Rigorous and rich, from all-pungs and self-draw to flush and nine gates. The best framework for systematic study and the standard for official tournaments.">国标麻将是国家体育总局制定的竞赛规则，共 81 种番型，8 番起胡。体系严谨、番型丰富，从平和、自摸到清一色、九莲宝灯层层递进。是系统学习麻将番型的最佳框架，也是正式比赛的标准。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🦁</span>
+        <div>
+          <span class="tag" data-zh="广东麻将" data-en="Cantonese">广东麻将</span>
+          <h4 data-zh="广东麻将（鸡平胡）" data-en="Cantonese (Chicken / All-Pung)">广东麻将（鸡平胡）</h4>
+          <p data-zh="广东麻将以鸡胡（基本胡）和平胡、爆胡为核心，常见有"鸡平胡""十三幺"等玩法。节奏明快，番型相对简洁，强调门前清与自摸。流行于粤港澳地区，是华南最普遍的民间打法。" data-en="Cantonese mahjong centers on chicken (basic) wins, all-pung, and big hands like thirteen orphans. Brisk pace with relatively simple scoring, emphasizing closed hands and self-draw. The most common folk style across Guangdong, Hong Kong, and Macau.">广东麻将以鸡胡（基本胡）和平胡、爆胡为核心，常见有"鸡平胡""十三幺"等玩法。节奏明快，番型相对简洁，强调门前清与自摸。流行于粤港澳地区，是华南最普遍的民间打法。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🌶️</span>
+        <div>
+          <span class="tag" data-zh="长沙麻将" data-en="Changsha">长沙麻将</span>
+          <h4 data-zh="长沙麻将" data-en="Changsha Mahjong">长沙麻将</h4>
+          <p data-zh="长沙麻将特色鲜明：有"将"（二五八做将头）、"大胡"（如天胡、地胡、七对、清一色等）与"小胡"之分，胡牌后可继续摸牌"杠上开花""抢杠胡"等花样多。地方性强，玩法灵活多变。" data-en="Changsha mahjong is distinctive: the pair head must be 2/5/8, with big wins (heavenly, earthly, seven pairs, flush) versus small wins. Extra patterns like kong-into-bloom and robbing the kong add variety. A flexible, regionally flavored style.">长沙麻将特色鲜明：有"将"（二五八做将头）、"大胡"（如天胡、地胡、七对、清一色等）与"小胡"之分，胡牌后可继续摸牌"杠上开花""抢杠胡"等花样多。地方性强，玩法灵活多变。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">🗾</span>
+        <div>
+          <span class="tag" data-zh="日本麻将" data-en="Riichi (Japan)">日本麻将</span>
+          <h4 data-zh="日本麻将（立直麻将）" data-en="Riichi Mahjong (Japan)">日本麻将（立直麻将）</h4>
+          <p data-zh="日麻（立直麻将）以门前清、立直宣告为核心，强调防守与效率。役种丰富（如立直、断幺九、三色同顺、役满等），1 番起胡，注重牌效与读牌。规则严谨、竞技性强，是全球电竞化程度最高的麻将玩法。" data-en="Riichi mahjong centers on closed hands and the riichi declaration, emphasizing defense and efficiency. Rich yaku (riichi, all-simples, three-suit sequences, yakuman), 1-han minimum, focused on tile efficiency and tile reading. The most competitively standardized mahjong worldwide.">日麻（立直麻将）以门前清、立直宣告为核心，强调防守与效率。役种丰富（如立直、断幺九、三色同顺、役满等），1 番起胡，注重牌效与读牌。规则严谨、竞技性强，是全球电竞化程度最高的麻将玩法。</p>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <span class="emoji" aria-hidden="true">📈</span>
+        <div>
+          <span class="tag" data-zh="学习路径" data-en="Learning Path">学习路径</span>
+          <h4 data-zh="推荐学习顺序" data-en="Recommended Order">推荐学习顺序</h4>
+          <p data-zh="建议先从四川血战入门，快速熟悉胡牌流程；再学国标建立番型体系；之后根据兴趣选择广东、长沙或日麻深入。配合 Mahjong AI 实时分析每手牌，能在实战中巩固理论，少走弯路。" data-en="Start with Sichuan Blood Battle to get comfortable winning, then learn National Standard to build a scoring framework, then dive into Cantonese, Changsha, or Riichi by interest. Pair with Mahjong AI's real-time analysis to reinforce theory through practice.">建议先从四川血战入门，快速熟悉胡牌流程；再学国标建立番型体系；之后根据兴趣选择广东、长沙或日麻深入。配合 Mahjong AI 实时分析每手牌，能在实战中巩固理论，少走弯路。</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
