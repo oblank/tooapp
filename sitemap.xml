@@ -5,7 +5,7 @@
   <!-- Home (Chinese default) -->
   <url>
     <loc>https://tooapp.com/</loc>
-    <lastmod>2026-06-23</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/"/>
@@ -49,6 +49,13 @@
   <url>
     <loc>https://tooapp.com/apps/fitpretty.html</loc>
     <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://tooapp.com/apps/photometa.html</loc>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

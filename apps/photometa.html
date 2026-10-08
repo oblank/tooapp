@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>片语 PhotoMeta — EXIF 照片装裱与水印工具 | Photo EXIF Frame & Caption App</title>
+  <meta name="description" content="片语 PhotoMeta 读出照片的 EXIF——相机、镜头、光圈、快门、ISO——连同你写下的标题与心情，排进精心设计的手工模板，让每一张照片讲出自己的故事。支持 iPhone / iPad / Mac。| PhotoMeta turns EXIF metadata and your words into beautifully framed photo cards on iOS and macOS.">
+  <meta name="author" content="Yuhao Deng · oBlank">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/apps/photometa.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/apps/photometa.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/apps/photometa.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/apps/photometa.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tooapp.com/apps/photometa.html">
+  <meta property="og:title" content="片语 PhotoMeta — 让照片讲出自己的故事 | EXIF Photo Frame App">
+  <meta property="og:description" content="读出照片的 EXIF 与心情，排进手工模板，一键导出精美照片卡片。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/apps/photometa/icon.jpg">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="片语 PhotoMeta — EXIF Photo Frame App">
+  <meta name="twitter:description" content="Turn EXIF metadata and your words into beautifully framed photo cards.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/apps/photometa/icon.jpg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#5E5CE6">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "片语 PhotoMeta",
+    "alternateName": "PhotoMeta",
+    "description": "Reads EXIF metadata from your photos and arranges it with your captions into carefully designed frames, ready to export and share.",
+    "url": "https://tooapp.com/apps/photometa.html",
+    "downloadUrl": "https://apps.apple.com/cn/app/id6809475233",
+    "operatingSystem": "iOS 26.5+",
+    "applicationCategory": "PhotographyApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Yuhao Deng",
+      "alternateName": "oBlank",
+      "url": "https://tooapp.com/"
+    },
+    "screenshot": [
+      "https://tooapp.com/assets/img/apps/photometa/screenshot-1.jpg",
+      "https://tooapp.com/assets/img/apps/photometa/screenshot-2.jpg",
+      "https://tooapp.com/assets/img/apps/photometa/screenshot-3.jpg",
+      "https://tooapp.com/assets/img/apps/photometa/screenshot-4.jpg",
+      "https://tooapp.com/assets/img/apps/photometa/screenshot-5.jpg",
+      "https://tooapp.com/assets/img/apps/photometa/screenshot-6.jpg"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* ── App Page Specific ─── */
+    .app-hero {
+      padding-block: var(--sp-20);
+      background: linear-gradient(160deg, color-mix(in srgb, #5E5CE6 8%, var(--surface)) 0%, var(--surface) 100%);
+    }
+    .app-hero-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: var(--sp-8);
+    }
+    .app-hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+      box-shadow: var(--shadow-lg);
+      flex-shrink: 0;
+      object-fit: cover;
+      display: block;
+    }
+    .app-hero-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #5E5CE6;
+      margin-bottom: var(--sp-2);
+    }
+    .app-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-4);
+    }
+    .app-hero-desc {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: 52ch;
+    }
+    .section-screenshots { background: var(--surface-raised); }
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .screenshot-frame {
+      aspect-ratio: 9/19.5;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .screenshot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .section-features { background: var(--surface); }
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+    .feature-item {
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      padding: var(--sp-4);
+      background: var(--surface-raised);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+    .feature-emoji { font-size: 1.5rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .feature-text h4 { font-size: var(--size-sm); font-weight: 700; margin-bottom: var(--sp-1); }
+    .feature-text p { font-size: var(--size-xs); color: var(--text-secondary); max-width: none; }
+    .section-usecases { background: var(--surface-raised); }
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--sp-6);
+      margin-top: var(--sp-8);
+    }
+    .usecase-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      border: 1px solid var(--border-subtle);
+    }
+    .usecase-icon { font-size: 2rem; margin-bottom: var(--sp-3); line-height: 1; }
+    .usecase-title { font-size: var(--size-base); font-weight: 700; margin-bottom: var(--sp-2); }
+    .usecase-desc { font-size: var(--size-sm); color: var(--text-secondary); max-width: none; }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 600px) {
+      .app-hero-inner { grid-template-columns: 1fr; }
+      .app-hero-icon { width: 88px; height: 88px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-mark">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/#why" data-zh="我们的优势" data-en="Why Us">我们的优势</a>
+      <a href="/#faq" data-zh="常见问题" data-en="FAQ">常见问题</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <a href="/#apps" data-zh="应用" data-en="Apps">应用</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page">片语 PhotoMeta</span>
+  </nav>
+</div>
+
+<!-- ===================== APP HERO ===================== -->
+<section class="app-hero" aria-labelledby="app-hero-heading">
+  <div class="container app-hero-inner">
+    <img class="app-hero-icon" src="/assets/img/apps/photometa/icon.jpg" alt="片语 PhotoMeta app icon" loading="lazy">
+    <div>
+      <p class="app-hero-eyebrow" data-zh="EXIF · 照片装裱 · 水印模板" data-en="EXIF · Photo Frames · Caption Templates">EXIF · 照片装裱 · 水印模板</p>
+      <h1 id="app-hero-heading" class="app-hero-title">
+        <span data-zh="片语 PhotoMeta — 让每一张照片讲出自己的故事" data-en="PhotoMeta — Let Every Photo Tell Its Own Story">片语 PhotoMeta — 让每一张照片讲出自己的故事</span>
+      </h1>
+      <p class="app-hero-desc" data-zh="照片不会说话，却替我们记住了太多。片语读出照片的 EXIF——相机、镜头、光圈、快门、ISO——连同你写下的标题与心情，一起排进精心设计的手工模板，导出分享。" data-en="Photos don't speak, yet they remember so much. PhotoMeta reads EXIF — camera, lens, aperture, shutter, ISO — and sets it together with your title and mood into carefully designed templates, ready to export and share.">
+        照片不会说话，却替我们记住了太多。片语读出照片的 EXIF——相机、镜头、光圈、快门、ISO——连同你写下的标题与心情，一起排进精心设计的手工模板，导出分享。
+      </p>
+      <div class="cta-group">
+        <a href="https://apps.apple.com/cn/app/id6809475233"
+           class="btn btn-store btn-large" target="_blank" rel="noopener"
+           aria-label="在 App Store 下载片语 PhotoMeta">
+          <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+        </a>
+        <a href="https://apps.apple.com/cn/app/id6809475233" class="qr-download qr-download--hero" target="_blank" rel="noopener" aria-label="扫码下载片语 PhotoMeta">
+          <span class="qr-download-code" aria-hidden="true">
+            <img src="/assets/img/apps/photometa/download-qr.png" alt="" class="qr-download-image" loading="lazy">
+          </span>
+          <span data-zh="扫码下载" data-en="Scan QR">扫码下载</span>
+        </a>
+        <span style="font-size:var(--size-xs);color:var(--text-tertiary);" data-zh="iOS 26.5+ · iPhone / iPad / Mac" data-en="iOS 26.5+ · iPhone / iPad / Mac">iOS 26.5+ · iPhone / iPad / Mac</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCREENSHOTS ===================== -->
+<section class="section-screenshots" aria-labelledby="screenshots-heading">
+  <div class="container">
+    <h2 id="screenshots-heading" class="section-title">
+      <span data-zh="应用截图" data-en="Screenshots">应用截图</span>
+    </h2>
+    <p class="section-sub" data-zh="来自 App Store 的真实界面截图，展示模板、EXIF 排版与导出效果" data-en="Real screenshots from the App Store showing templates, EXIF layout, and export results.">来自 App Store 的真实界面截图，展示模板、EXIF 排版与导出效果</p>
+    <div class="screenshot-gallery" role="list">
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/photometa/screenshot-1.jpg" alt="片语 PhotoMeta screenshot 1" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/photometa/screenshot-2.jpg" alt="片语 PhotoMeta screenshot 2" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/photometa/screenshot-3.jpg" alt="片语 PhotoMeta screenshot 3" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/photometa/screenshot-4.jpg" alt="片语 PhotoMeta screenshot 4" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/photometa/screenshot-5.jpg" alt="片语 PhotoMeta screenshot 5" loading="lazy"></div>
+      <div class="screenshot-frame" role="listitem"><img class="screenshot-image" src="/assets/img/apps/photometa/screenshot-6.jpg" alt="片语 PhotoMeta screenshot 6" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="section-features" aria-labelledby="features-heading">
+  <div class="container">
+    <h2 id="features-heading" class="section-title">
+      <span data-zh="核心功能" data-en="Key Features">核心功能</span>
+    </h2>
+    <p class="section-sub" data-zh="围绕 EXIF 读取、模板排版与高清导出打造的照片装裱工具" data-en="A photo framing tool built around EXIF reading, template layout, and high-quality export.">围绕 EXIF 读取、模板排版与高清导出打造的照片装裱工具</p>
+    <ul class="feature-list" role="list">
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🖼️</span>
+        <div class="feature-text">
+          <h4 data-zh="多款手工模板" data-en="Handcrafted Templates">多款手工模板</h4>
+          <p data-zh="经典白边、胶片风格、极简留白、深色质感……持续增加，总有一款适合你的照片。" data-en="Classic white border, film look, minimal whitespace, deep-tone textures — with more added over time.">经典白边、胶片风格、极简留白、深色质感……持续增加，总有一款适合你的照片。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📷</span>
+        <div class="feature-text">
+          <h4 data-zh="精准 EXIF 呈现" data-en="Precise EXIF Display">精准 EXIF 呈现</h4>
+          <p data-zh="相机、镜头、光圈、快门、ISO——每个字段独立显示或隐藏，画面更清爽。" data-en="Camera, lens, aperture, shutter, ISO — each field can be shown or hidden independently.">相机、镜头、光圈、快门、ISO——每个字段独立显示或隐藏，画面更清爽。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🏷️</span>
+        <div class="feature-text">
+          <h4 data-zh="相机品牌 Logo" data-en="Camera Brand Logos">相机品牌 Logo</h4>
+          <p data-zh="按 EXIF 自动识别相机品牌并配上标志，也支持手动指定，仪式感拉满。" data-en="Automatically detects camera brand from EXIF and applies its logo, with manual override available.">按 EXIF 自动识别相机品牌并配上标志，也支持手动指定，仪式感拉满。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">✍️</span>
+        <div class="feature-text">
+          <h4 data-zh="标题与心情" data-en="Titles &amp; Moods">标题与心情</h4>
+          <p data-zh="标题符号、文字配色、对齐方式自由组合，内置思源宋体，中文环境开箱即用。" data-en="Freely combine title glyphs, text colors, and alignment. Ships with Source Han Serif for Chinese.">标题符号、文字配色、对齐方式自由组合，内置思源宋体，中文环境开箱即用。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">✂️</span>
+        <div class="feature-text">
+          <h4 data-zh="内置编辑工具" data-en="Built-in Editing Tools">内置编辑工具</h4>
+          <p data-zh="裁剪、模糊、马赛克一应俱全，导出前对照片做最后的微调。" data-en="Crop, blur, and mosaic tools built in — perfect for last-mile touch-ups before export.">裁剪、模糊、马赛克一应俱全，导出前对照片做最后的微调。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">📤</span>
+        <div class="feature-text">
+          <h4 data-zh="批量导出" data-en="Batch Export">批量导出</h4>
+          <p data-zh="一次处理多张照片，高效出图。VIP 解锁无限导入与无水印导出。" data-en="Process multiple photos at once. VIP unlocks unlimited imports and watermark-free export.">一次处理多张照片，高效出图。VIP 解锁无限导入与无水印导出。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">💻</span>
+        <div class="feature-text">
+          <h4 data-zh="Mac 文件导入" data-en="Mac Files Import">Mac 文件导入</h4>
+          <p data-zh="Mac 版支持从「文件」（访达）导入，任意目录的照片都能直接打开编辑。" data-en="On Mac, import directly from Files (Finder) — photos in any folder are one click away.">Mac 版支持从「文件」（访达）导入，任意目录的照片都能直接打开编辑。</p>
+        </div>
+      </li>
+      <li class="feature-item">
+        <span class="feature-emoji" aria-hidden="true">🧩</span>
+        <div class="feature-text">
+          <h4 data-zh="拼图编辑器" data-en="Collage Editor">拼图编辑器</h4>
+          <p data-zh="升级版拼图编辑器，把多张照片组合成一张故事卡片。" data-en="An upgraded collage editor to combine multiple photos into a single story card.">升级版拼图编辑器，把多张照片组合成一张故事卡片。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== USE CASES ===================== -->
+<section class="section-usecases" aria-labelledby="usecases-heading">
+  <div class="container">
+    <h2 id="usecases-heading" class="section-title">
+      <span data-zh="适合哪些人？" data-en="Who Is It For?">适合哪些人？</span>
+    </h2>
+    <p class="section-sub" data-zh="为热爱摄影、认真记录生活的你打造" data-en="Built for photographers and anyone who documents life with care.">为热爱摄影、认真记录生活的你打造</p>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">📸</div>
+        <h3 class="usecase-title" data-zh="摄影爱好者" data-en="Photography Enthusiasts">摄影爱好者</h3>
+        <p class="usecase-desc" data-zh="在分享作品时附上相机、镜头、光圈、快门等参数，让交流更专业。" data-en="Share photos with camera, lens, aperture, and shutter details attached for more professional discussion.">在分享作品时附上相机、镜头、光圈、快门等参数，让交流更专业。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">🎞️</div>
+        <h3 class="usecase-title" data-zh="胶片与复古玩家" data-en="Film &amp; Vintage Lovers">胶片与复古玩家</h3>
+        <p class="usecase-desc" data-zh="胶片风格与深色质感模板，让你的照片自带一份怀旧气息。" data-en="Film-style and deep-tone templates give your photos a timeless, nostalgic feel.">胶片风格与深色质感模板，让你的照片自带一份怀旧气息。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">📖</div>
+        <h3 class="usecase-title" data-zh="生活记录者" data-en="Life Journalers">生活记录者</h3>
+        <p class="usecase-desc" data-zh="在照片下方写下标题与心情，把每一张照片都变成可回看的片段。" data-en="Add titles and moods beneath your photos, turning each one into a moment worth revisiting.">在照片下方写下标题与心情，把每一张照片都变成可回看的片段。</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon" aria-hidden="true">🚀</div>
+        <h3 class="usecase-title" data-zh="社媒分享用户" data-en="Social Creators">社媒分享用户</h3>
+        <p class="usecase-desc" data-zh="一键导出适合小红书、朋友圈、Instagram 的精美卡片，照片更有质感。" data-en="One-tap export of polished cards for Xiaohongshu, Moments, or Instagram — your photos, elevated.">一键导出适合小红书、朋友圈、Instagram 的精美卡片，照片更有质感。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="section-faq" aria-labelledby="faq-heading">
+  <div class="container faq-container">
+    <h2 id="faq-heading" class="section-title">
+      <span data-zh="常见问题" data-en="FAQ">常见问题</span>
+    </h2>
+    <dl class="faq-list">
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="片语 PhotoMeta 是免费应用吗？" data-en="Is PhotoMeta free?">片语 PhotoMeta 是免费应用吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="免费下载使用，VIP 解锁无限导入与无水印导出。具体价格以 App Store 页面实时显示为准。" data-en="Free to download. VIP unlocks unlimited imports and watermark-free export. See the App Store listing for current pricing.">免费下载使用，VIP 解锁无限导入与无水印导出。具体价格以 App Store 页面实时显示为准。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="支持哪些设备？" data-en="Which devices are supported?">支持哪些设备？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="支持 iPhone、iPad 与 Mac（Apple Silicon），系统要求 iOS 26.5 / macOS 26.5 或更高版本。" data-en="Available on iPhone, iPad, and Mac (Apple Silicon), requiring iOS 26.5 / macOS 26.5 or later.">支持 iPhone、iPad 与 Mac（Apple Silicon），系统要求 iOS 26.5 / macOS 26.5 或更高版本。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="可以从 Mac 的访达直接导入照片吗？" data-en="Can I import photos from Finder on Mac?">可以从 Mac 的访达直接导入照片吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="可以。Mac 版支持从「文件」（访达）导入，任意目录的照片都能直接打开编辑，无需先进相册。" data-en="Yes. The Mac version imports directly from Files (Finder) — photos in any folder can be opened without going through the Photos library.">可以。Mac 版支持从「文件」（访达）导入，任意目录的照片都能直接打开编辑，无需先进相册。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="EXIF 字段可以自定义显示吗？" data-en="Can I customize which EXIF fields are shown?">EXIF 字段可以自定义显示吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="可以。相机、镜头、光圈、快门、ISO 等字段都支持独立显示或隐藏，默认隐藏相机与镜头，画面更清爽。" data-en="Yes. Camera, lens, aperture, shutter, ISO and more can each be toggled independently. Camera and lens are hidden by default for a cleaner look.">可以。相机、镜头、光圈、快门、ISO 等字段都支持独立显示或隐藏，默认隐藏相机与镜头，画面更清爽。</p>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span data-zh="照片会上传到服务器吗？" data-en="Are my photos uploaded to a server?">照片会上传到服务器吗？</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </dt>
+        <dd class="faq-answer" hidden>
+          <p data-zh="不会。所有 EXIF 读取、模板排版与导出都在本地完成，你的照片始终留在你的设备上。" data-en="No. All EXIF parsing, template layout, and export happen on-device — your photos never leave your device.">不会。所有 EXIF 读取、模板排版与导出都在本地完成，你的照片始终留在你的设备上。</p>
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== CTA BANNER ===================== -->
+<section class="section-cta-banner" aria-labelledby="cta-heading">
+  <div class="container cta-banner-inner">
+    <h2 id="cta-heading" data-zh="让每一张照片，都讲出它自己的故事" data-en="Let Every Photo Tell Its Own Story">让每一张照片，都讲出它自己的故事</h2>
+    <p data-zh="免费下载片语 PhotoMeta，把 EXIF 与心情排进手工模板，一键导出分享。" data-en="Download PhotoMeta for free and turn EXIF and your words into beautifully framed photo cards.">
+      免费下载片语 PhotoMeta，把 EXIF 与心情排进手工模板，一键导出分享。
+    </p>
+    <a href="https://apps.apple.com/cn/app/id6809475233"
+       class="btn btn-primary btn-large" target="_blank" rel="noopener"
+       aria-label="在 App Store 下载片语 PhotoMeta">
+      <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-mark">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/fitpretty.html" data-zh="FitPretty" data-en="FitPretty">FitPretty</a>
+      <a href="/apps/photometa.html" data-zh="片语 PhotoMeta" data-en="PhotoMeta">片语 PhotoMeta</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 oBlank. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 oBlank. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>
