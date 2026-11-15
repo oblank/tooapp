@@ -20,6 +20,7 @@ from mahjong_content import ALL_ARTICLES, CATEGORIES, APP
 ROOT = Path(__file__).resolve().parent.parent
 ARTICLES_DIR = ROOT / "articles"
 SITEMAP = ROOT / "sitemap.xml"
+FEED = ROOT / "feed.xml"
 SITE = "https://tooapp.com"
 PUBLISHED = "2026-11-15"
 
@@ -355,6 +356,7 @@ def render_article(a: dict) -> str:
   <link rel="alternate" hreflang="zh-Hans" href="{url}">
   <link rel="alternate" hreflang="en" href="{url}">
   <link rel="alternate" hreflang="x-default" href="{url}">
+  <link rel="alternate" type="application/rss+xml" title="麻将文章 · Mahjong Articles" href="/feed.xml">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -480,6 +482,7 @@ def render_hub() -> str:
   <link rel="alternate" hreflang="zh-Hans" href="{url}">
   <link rel="alternate" hreflang="en" href="{url}">
   <link rel="alternate" hreflang="x-default" href="{url}">
+  <link rel="alternate" type="application/rss+xml" title="麻将文章 · Mahjong Articles" href="/feed.xml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{url}">
   <meta property="og:title" content="麻将文章总览 | Mahjong Articles Hub">
@@ -576,6 +579,39 @@ def write_sitemap() -> None:
     SITEMAP.write_text("\n".join(parts), encoding="utf-8")
 
 
+def write_feed() -> None:
+    """Emit an RSS 2.0 feed for the article set (discovery + aggregators)."""
+    pub = "Sat, 15 Nov 2026 00:00:00 +0800"
+    items = []
+    for a in ALL_ARTICLES:
+        link = f"{SITE}/articles/{a['slug']}.html"
+        desc = f"{a['summary'][0]} — {a['summary'][1]}"
+        items.append(
+            "    <item>\n"
+            f"      <title>{html.escape(a['title'][0])}</title>\n"
+            f"      <link>{link}</link>\n"
+            f'      <guid isPermaLink="true">{link}</guid>\n'
+            f"      <description>{html.escape(desc)}</description>\n"
+            f"      <pubDate>{pub}</pubDate>\n"
+            "    </item>"
+        )
+    feed = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        "    <title>麻将文章 · Mahjong Articles — Too Apps</title>\n"
+        f"    <link>{SITE}/articles/</link>\n"
+        "    <description>中英双语麻将文章：规则、地方玩法、番种算分、策略技巧与 AI 教学。"
+        "Bilingual mahjong articles on rules, variants, scoring, strategy and AI.</description>\n"
+        "    <language>zh-cn</language>\n"
+        f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+        f"    <lastBuildDate>{pub}</lastBuildDate>\n"
+        + "\n".join(items)
+        + "\n  </channel>\n</rss>\n"
+    )
+    FEED.write_text(feed, encoding="utf-8")
+
+
 def main() -> None:
     ARTICLES_DIR.mkdir(exist_ok=True)
     seen = set()
@@ -588,8 +624,9 @@ def main() -> None:
 
     (ARTICLES_DIR / "index.html").write_text(render_hub(), encoding="utf-8")
     write_sitemap()
+    write_feed()
 
-    print(f"generated {len(ALL_ARTICLES)} articles + hub page + sitemap")
+    print(f"generated {len(ALL_ARTICLES)} articles + hub page + sitemap + feed")
 
 
 if __name__ == "__main__":
