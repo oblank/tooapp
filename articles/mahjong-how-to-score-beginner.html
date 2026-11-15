@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta -->
+  <title>麻将怎么算分？新手也能看懂的点数入门 | How Mahjong Scoring Works: A Beginner&#x27;s Guide</title>
+  <meta name="description" content="麻将算分入门：番种、翻数、点数与常见结算方式的通俗解释。 | Beginner mahjong scoring: fan, multipliers, points and common settlement, explained plainly.">
+  <meta name="author" content="Yuhao Deng · oBlank">
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://tooapp.com/articles/mahjong-how-to-score-beginner.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://tooapp.com/articles/mahjong-how-to-score-beginner.html">
+  <link rel="alternate" hreflang="en" href="https://tooapp.com/articles/mahjong-how-to-score-beginner.html">
+  <link rel="alternate" hreflang="x-default" href="https://tooapp.com/articles/mahjong-how-to-score-beginner.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tooapp.com/articles/mahjong-how-to-score-beginner.html">
+  <meta property="og:title" content="麻将怎么算分？新手也能看懂的点数入门 | How Mahjong Scoring Works: A Beginner&#x27;s Guide">
+  <meta property="og:description" content="麻将算分入门：番种、翻数、点数与常见结算方式的通俗解释。">
+  <meta property="og:image" content="https://tooapp.com/assets/img/apps/mahjong-ai/icon.jpg">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Too Apps">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="麻将怎么算分？新手也能看懂的点数入门 | How Mahjong Scoring Works: A Beginner&#x27;s Guide">
+  <meta name="twitter:description" content="Beginner mahjong scoring: fan, multipliers, points and common settlement, explained plainly.">
+  <meta name="twitter:image" content="https://tooapp.com/assets/img/apps/mahjong-ai/icon.jpg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#FF9F0A">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "麻将怎么算分？新手也能看懂的点数入门",
+  "description": "麻将算分入门：番种、翻数、点数与常见结算方式的通俗解释。",
+  "url": "https://tooapp.com/articles/mahjong-how-to-score-beginner.html",
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "inLanguage": "zh-Hans",
+  "articleSection": "新手指南",
+  "author": {
+    "@type": "Person",
+    "name": "Yuhao Deng",
+    "alternateName": "oBlank",
+    "url": "https://tooapp.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Too Apps",
+    "url": "https://tooapp.com/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Too Apps",
+    "url": "https://tooapp.com/"
+  }
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    .article-hero {
+      padding-block: var(--sp-16) var(--sp-12);
+      background: linear-gradient(160deg,
+        color-mix(in srgb, #FF9F0A 8%, var(--surface)) 0%,
+        var(--surface) 100%);
+    }
+    .article-hero-inner { max-width: 760px; }
+    .article-eyebrow {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FF9F0A;
+      margin-bottom: var(--sp-4);
+    }
+    .article-hero-title {
+      font-size: clamp(var(--size-2xl), 4vw, var(--size-4xl));
+      margin-bottom: var(--sp-6);
+    }
+    .article-hero-summary {
+      font-size: var(--size-md);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-8);
+      max-width: 58ch;
+    }
+    .article-meta {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-8);
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr min(680px, 100%) 1fr;
+      gap: var(--sp-8);
+      padding-block: var(--sp-16);
+    }
+    .article-layout > * { grid-column: 2; }
+    .prose h2 {
+      font-size: var(--size-xl);
+      margin-top: var(--sp-12);
+      margin-bottom: var(--sp-4);
+    }
+    .prose h3 {
+      font-size: var(--size-lg);
+      margin-top: var(--sp-8);
+      margin-bottom: var(--sp-3);
+    }
+    .prose p {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-6);
+      max-width: none;
+    }
+    .prose ul, .prose ol {
+      margin-bottom: var(--sp-6);
+      padding-left: var(--sp-6);
+    }
+    .prose li {
+      font-size: var(--size-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-2);
+    }
+    .prose strong { color: var(--text-primary); }
+    .app-callout {
+      background: var(--surface-raised);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: var(--sp-6);
+      display: flex;
+      gap: var(--sp-4);
+      align-items: flex-start;
+      margin-block: var(--sp-8);
+    }
+    .app-callout-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    .app-callout-body { flex: 1; }
+    .app-callout-name {
+      font-size: var(--size-lg);
+      font-weight: 700;
+      margin-bottom: var(--sp-1);
+    }
+    .app-callout-desc {
+      font-size: var(--size-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-4);
+      max-width: none;
+    }
+    .app-callout .cta-group { flex-wrap: wrap; }
+    .tip-box {
+      background: color-mix(in srgb, #FF9F0A 8%, var(--surface));
+      border-left: 4px solid #FF9F0A;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--sp-4) var(--sp-6);
+      margin-block: var(--sp-6);
+    }
+    .tip-box p { margin-bottom: 0; font-size: var(--size-sm); }
+    .tip-label {
+      font-size: var(--size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #FF9F0A;
+      margin-bottom: var(--sp-2);
+    }
+    .breadcrumb {
+      font-size: var(--size-xs);
+      color: var(--text-tertiary);
+      padding-block: var(--sp-4);
+      display: flex;
+      gap: var(--sp-2);
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-secondary); }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb-sep { color: var(--text-tertiary); }
+    @media (max-width: 768px) {
+      .app-callout { flex-direction: column; }
+      .article-layout { grid-template-columns: 1fr; padding-inline: var(--sp-4); }
+      .article-layout > * { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Too Apps 首页">
+      <span class="logo-mark">Too</span>
+      <span class="logo-mark">Apps</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="/#apps" data-zh="全部应用" data-en="All Apps">全部应用</a>
+      <a href="/articles/" data-zh="麻将文章" data-en="Mahjong Articles">麻将文章</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+    </nav>
+    <button class="lang-toggle" aria-label="Switch language / 切换语言" type="button">
+      <span class="lang-zh" aria-hidden="true">EN</span>
+      <span class="lang-en" aria-hidden="true">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="/" data-zh="首页" data-en="Home">首页</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <a href="/articles/" data-zh="麻将文章" data-en="Mahjong Articles">麻将文章</a>
+    <span class="breadcrumb-sep" aria-hidden="true">/</span>
+    <span aria-current="page" data-zh="麻将怎么算分？新手也能看懂的点数入门" data-en="How Mahjong Scoring Works: A Beginner&#x27;s Guide">麻将怎么算分？新手也能看懂的点数入门</span>
+  </nav>
+</div>
+
+<!-- ===================== ARTICLE HERO ===================== -->
+<section class="article-hero" aria-labelledby="article-heading">
+  <div class="container article-hero-inner">
+    <p class="article-eyebrow" data-zh="新手指南 · 算分" data-en="Beginner · Scoring">新手指南 · 算分</p>
+    <h1 id="article-heading" class="article-hero-title">
+      <span data-zh="麻将怎么算分？新手也能看懂的点数入门" data-en="How Mahjong Scoring Works: A Beginner&#x27;s Guide">麻将怎么算分？新手也能看懂的点数入门</span>
+    </h1>
+    <p class="article-hero-summary" data-zh="和牌了却不知道该收多少分？先搞懂「番」和「点」这两个概念就够了。" data-en="Won the hand but unsure what to collect? Understanding &quot;fan&quot; and &quot;points&quot; is enough to start.">和牌了却不知道该收多少分？先搞懂「番」和「点」这两个概念就够了。</p>
+    <p class="article-meta" data-zh="作者：oBlank · 2026年11月" data-en="By Yuhao Deng · November 2026">作者：oBlank · 2026年11月</p>
+
+    <!-- Top CTA -->
+    <div class="app-callout">
+      <img class="app-callout-icon" src="/assets/img/apps/mahjong-ai/icon.jpg" alt="Mahjong AI app icon" width="64" height="64" loading="lazy">
+      <div class="app-callout-body">
+        <p class="app-callout-name">Mahjong AI</p>
+        <p class="app-callout-desc" data-zh="麻将 AI 智能助手，实时分析牌局，帮你提升技术与胜率。支持 iPhone 与 iPad。" data-en="AI-powered mahjong assistant that analyzes your hand in real time. Level up on iPhone and iPad.">麻将 AI 智能助手，实时分析牌局，帮你提升技术与胜率。支持 iPhone 与 iPad。</p>
+        <div class="cta-group">
+          <a href="https://apps.apple.com/cn/app/id6758575182" class="btn btn-store" target="_blank" rel="noopener"
+             aria-label="在 App Store 下载 Mahjong AI">
+            <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-zh="免费下载" data-en="Free Download">免费下载</span>
+          </a>
+          <a href="/apps/mahjong-ai.html" class="btn btn-card-detail" data-zh="查看详情" data-en="Learn More">查看详情</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARTICLE BODY ===================== -->
+<main>
+  <div class="article-layout">
+    <article class="prose">
+      <p data-zh="算分是新手最头疼的一环，因为各地规则差异很大。但抓住「先定番、再换算点数」这个顺序，就不会乱。" data-en="Scoring is the most daunting part for beginners because rules vary widely. But if you keep the order &quot;decide fan, then convert to points&quot;, it stays manageable.">算分是新手最头疼的一环，因为各地规则差异很大。但抓住「先定番、再换算点数」这个顺序，就不会乱。</p>
+
+      <h2 data-zh="番：和牌价值的单位" data-en="Fan: the unit of hand value">番：和牌价值的单位</h2>
+
+      <p data-zh="「番」用来衡量一手牌的稀有与难度。和牌后先数这手牌由哪些番种构成，累加得到总番数，番越高通常得分越多。" data-en="&quot;Fan&quot; measures how rare or difficult a hand is. After winning, you count which patterns the hand contains, add them up, and the total fan drives the score.">「番」用来衡量一手牌的稀有与难度。和牌后先数这手牌由哪些番种构成，累加得到总番数，番越高通常得分越多。</p>
+
+      <h2 data-zh="点数：把番换成实际分数" data-en="Points: turning fan into a score">点数：把番换成实际分数</h2>
+
+      <p data-zh="在立直麻将中，番与符共同决定点数；在国标与多数地方玩法中，则按番数查表或按底分×倍数结算。理解换算公式比死记表格更重要。" data-en="In riichi, fan and fu together set the points; in Chinese official and most regional rules, you look up a table or multiply a base by the fan. Understanding the conversion beats memorising tables.">在立直麻将中，番与符共同决定点数；在国标与多数地方玩法中，则按番数查表或按底分×倍数结算。理解换算公式比死记表格更重要。</p>
+
+      <h2 data-zh="自摸与点炮的支付差别" data-en="Self-draw vs dealing in">自摸与点炮的支付差别</h2>
+
+      <p data-zh="自摸时通常三家共同支付；点炮时由放炮者支付（不同玩法分摊方式不同）。这也是为什么「别点炮」在算分上如此重要。" data-en="On a self-draw all players often pay; on a discard, the discarder pays (the split varies by variant). That&#x27;s why &quot;don&#x27;t deal in&quot; matters so much for your score.">自摸时通常三家共同支付；点炮时由放炮者支付（不同玩法分摊方式不同）。这也是为什么「别点炮」在算分上如此重要。</p>
+
+      <div class="tip-box">
+        <p class="tip-label" data-zh="实战提示" data-en="Practical Tip">实战提示</p>
+        <p data-zh="新手先把「番数越高、得分越多、点炮吃亏最大」这条记住，具体数值慢慢熟练。" data-en="First remember: more fan means more points, and dealing in hurts most. The exact numbers come with practice.">新手先把「番数越高、得分越多、点炮吃亏最大」这条记住，具体数值慢慢熟练。</p>
+      </div>
+
+      <h2 data-zh="推荐工具：Mahjong AI" data-en="Recommended Tool: Mahjong AI">推荐工具：Mahjong AI</h2>
+
+      <p data-zh="想把上面的内容变成真正的牌技？本文提到的思路，&lt;a href=&#x27;/apps/mahjong-ai.html&#x27;&gt;Mahjong AI&lt;/a&gt; 都能在实战中帮你落地。" data-en="Want to turn these ideas into real skill? &lt;a href=&#x27;/apps/mahjong-ai.html&#x27;&gt;Mahjong AI&lt;/a&gt; helps you apply them at the table.">想把上面的内容变成真正的牌技？本文提到的思路，<a href='/apps/mahjong-ai.html'>Mahjong AI</a> 都能在实战中帮你落地。</p>
+
+      <ul>
+        <li data-zh="&lt;strong&gt;实时牌局分析：&lt;/strong&gt;即时给出当前手牌的最优出牌方向，不再凭感觉盲打。" data-en="&lt;strong&gt;Real-time hand analysis:&lt;/strong&gt; shows the optimal discard direction for your hand instantly."><strong>实时牌局分析：</strong>即时给出当前手牌的最优出牌方向，不再凭感觉盲打。</li>
+        <li data-zh="&lt;strong&gt;多种玩法支持：&lt;/strong&gt;覆盖国标、广东、四川等主流玩法，满足不同地区玩家。" data-en="&lt;strong&gt;Multiple rulesets:&lt;/strong&gt; covers standard Chinese, Cantonese, Sichuan and more regional variants."><strong>多种玩法支持：</strong>覆盖国标、广东、四川等主流玩法，满足不同地区玩家。</li>
+        <li data-zh="&lt;strong&gt;危险牌提示：&lt;/strong&gt;依据对手舍牌智能提示高风险牌，降低点炮概率。" data-en="&lt;strong&gt;Danger-tile warnings:&lt;/strong&gt; flags risky discards from opponents&#x27; patterns to cut how often you deal in."><strong>危险牌提示：</strong>依据对手舍牌智能提示高风险牌，降低点炮概率。</li>
+        <li data-zh="&lt;strong&gt;简洁易用：&lt;/strong&gt;界面符合 Apple 设计规范，支持深色模式，专注打牌不打扰。" data-en="&lt;strong&gt;Clean and simple:&lt;/strong&gt; Apple-style interface with dark mode support that stays out of your way."><strong>简洁易用：</strong>界面符合 Apple 设计规范，支持深色模式，专注打牌不打扰。</li>
+      </ul>
+
+      <div class="app-callout">
+      <img class="app-callout-icon" src="/assets/img/apps/mahjong-ai/icon.jpg" alt="Mahjong AI app icon" width="64" height="64" loading="lazy">
+      <div class="app-callout-body">
+        <p class="app-callout-name">Mahjong AI</p>
+        <p class="app-callout-desc" data-zh="免费下载 Mahjong AI，让每一局麻将都成为有效的训练。" data-en="Download Mahjong AI for free and make every game a real training session.">免费下载 Mahjong AI，让每一局麻将都成为有效的训练。</p>
+        <div class="cta-group">
+          <a href="https://apps.apple.com/cn/app/id6758575182" class="btn btn-store" target="_blank" rel="noopener"
+             aria-label="在 App Store 下载 Mahjong AI">
+            <svg class="icon-apple" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span data-zh="在 App Store 下载" data-en="Download on App Store">在 App Store 下载</span>
+          </a>
+          <a href="/apps/mahjong-ai.html" class="btn btn-card-detail" data-zh="查看详情" data-en="Learn More">查看详情</a>
+        </div>
+      </div>
+    </div>
+
+      <p data-zh="算分不神秘，先分清番与点，再熟悉本玩法的结算表即可。" data-en="Scoring isn&#x27;t mysterious: separate fan from points, then learn your variant&#x27;s table.">算分不神秘，先分清番与点，再熟悉本玩法的结算表即可。</p>
+
+      <p data-zh="用 AI 助手算分，能一边打一边学，比翻规则书快得多。" data-en="Letting an AI assistant tally scores lets you learn while you play — far faster than reading a rulebook.">用 AI 助手算分，能一边打一边学，比翻规则书快得多。</p>
+
+    </article>
+  </div>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" aria-label="Too Apps 首页">
+        <span class="logo-mark">Too</span><span class="logo-mark">Apps</span>
+      </a>
+      <p class="footer-tagline" data-zh="独立开发 · 用心打磨" data-en="Indie crafted · Made with care">独立开发 · 用心打磨</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="/" data-zh="首页" data-en="Home">首页</a>
+      <a href="/articles/" data-zh="麻将文章" data-en="Mahjong Articles">麻将文章</a>
+      <a href="/apps/mahjong-ai.html" data-zh="Mahjong AI" data-en="Mahjong AI">Mahjong AI</a>
+      <a href="/apps/noteit.html" data-zh="Noteit" data-en="Noteit">Noteit</a>
+      <a href="/apps/rss-reader.html" data-zh="知了" data-en="知了 RSS">知了</a>
+    </nav>
+    <p class="footer-legal">
+      <span data-zh="© 2026 oBlank. 保留所有权利。" data-en="© 2026 Yuhao Deng. All rights reserved.">© 2026 oBlank. 保留所有权利。</span>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>
